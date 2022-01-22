@@ -131,11 +131,12 @@ section {
 }
 
 #calcs-body {
-  height: 150px;
+  height: 100%;
   width: 100%;
   background-image: url("../img/bg/bg2.jpg");
   gap: 30px;
   font-size: 30px;
+  padding-bottom: 30px;
 }
 
 .bl {
@@ -147,7 +148,15 @@ section {
   font-size: 10px;
 }
 
+@media screen and (max-width: 500px) {
+  #main-settings {
+    flex-direction: column;
+  }
 
+  #calcs-body {
+    flex-direction: column;
+  }
+}
 
 
 
