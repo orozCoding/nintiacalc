@@ -125,9 +125,10 @@ section {
 
 #calcs-top {
   width: 100%;
-  height: 100px;
+  height: 150px;
   background-image: url("../img/bg/bg2top.png");
   background-position: 2px;
+  padding-bottom: 50px;
 }
 
 #calcs-body {
@@ -136,7 +137,7 @@ section {
   background-image: url("../img/bg/bg2.jpg");
   gap: 30px;
   font-size: 30px;
-  padding-bottom: 30px;
+  padding: 40px 0;
 }
 
 .bl {
