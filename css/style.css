@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*, h1, h2, p {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a, a::after, a:visited,
+a:active, a:hover {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.d-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row {
+  flex-direction: row;
+  justify-content: center;
+}
+
+.pop {
+  font-family: 'Poppins', sans-serif;
+}
+
+main {
+  width:100%;
+}
+
+body {
+  font-family: 'Bebas Neue', 'Courier New', Courier, monospace;
+  background-image: url("../img/bg/bg.jpg");
+  background-color: black;
+  text-align: center;
+  justify-content: space-between;
+  color: white;
+}
+
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#page-title {
+  padding-top: 20px 0;
+  text-align: center;
+  color: #e7b22c;
+  font-size: 60px;
+}
+
+
+
+#main-title {
+  padding: 10px 0;
+  text-align: center;
+  color: #ffffff;
+  font-size: 35px;
+  padding-bottom: 20px;
+}
+
+#main-settings {
+  gap: 30px;
+}
+
+.set-cards {
+  width: 200px;
+  height: 350px;
+  border: solid 2px white;
+  background-color: #333;
+  border-radius: 20px;
+  color: white;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.set-picture img {
+  position: relative;
+  top: -15px;
+  display: block;
+  max-width: 100%;
+}
+
+.hab-title,
+.action-title {
+  font-size: 32px;
+  line-height: 30px;
+}
+
+.hab-title {
+  margin-top: -20px;
+}
+
+.action-title {
+  padding-top: 20px;
+}
+
+.action-subtitle {
+  font-size: 25px;
+}
+
+.set-description {
+  font-size: 12px;
+  padding: 5px 10px;
+}
+
+#set-tasks img, 
+#set-items img {
+  width: 60px;
+}
+
+.el-three {
+  gap: 15px;
+}
+
+#main-calcs {
+  width: 100%;
+  flex-direction: column;
+}
+
+#calcs-top {
+  width: 100%;
+  height: 100px;
+  background-image: url("../img/bg/bg2top.png");
+  background-position: 2px;
+}
+
+#calcs-body {
+  height: 150px;
+  width: 100%;
+  background-image: url("../img/bg/bg2.jpg");
+  gap: 30px;
+  font-size: 30px;
+}
+
+.bl {
+  color: black;
+}
+
+.credits {
+  bottom: 1px;
+  font-size: 10px;
+}
+
+
+
+
+
+
+

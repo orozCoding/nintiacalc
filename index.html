@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Nintia Calc</title>
+</head>
+
+<body class="d-flex">
+  <header>
+    <h1 id="page-title"> Calculadora Nintia Estate </h1>
+  </header>
+  <main>
+    <h2 id="main-title"> Profit Diario </h2>
+    <section id="main-settings" class="d-flex row">
+      <div id="set-hab" class="set-cards d-flex">
+        <div class="set-picture d-flex"><img src="./img/houses/hs-blue.jpg" alt="blue house"></div>
+        <p class="hab-title">Habitaciones</p>
+        <div class="set-action d-flex">
+          <p class="action-button">Acciones</p>
+        </div>
+        <div class="set-description d-flex pop">¿Cuántas habitaciones tienes en total?</div>
+      </div>
+      <div id="set-tasks" class="set-cards d-flex">
+        <p class="action-title">Tareas Diarias</p>
+        <div class="item d-flex">
+          <p class="action-subtitle">Limpiar</p>
+          <div class="el-three d-flex row"><img src="./img/icons/clean.png" alt="Icono limpiar">
+            <div class="d-flex">
+              <p>15/15</p>
+              <input type="checkbox">
+            </div>
+          </div>
+        </div>
+        <div class="item d-flex">
+          <p class="action-subtitle">Reparar</p>
+          <div class="el-three d-flex row"><img src="./img/icons/repair.png" alt="Icono limpiar">
+            <div class="d-flex">
+              <p>5/5</p>
+              <input type="checkbox">
+            </div>
+          </div>
+        </div>
+        <div class="set-description pop">Escoge las actividades que realizarás diariamente.
+        </div>
+      </div>
+      <div id="set-items" class="set-cards d-flex">
+        <p class="action-title">Gastos Diarios</p>
+        <div class="item d-flex">
+          <p class="action-subtitle">Valla</p>
+          <div class="el-three d-flex row"><img src="./img/icons/fence.png" alt="Icono limpiar">
+            <div class="d-flex">
+              <p>1</p>
+              <input type="checkbox">
+            </div>
+          </div>
+        </div>
+        <div class="item d-flex">
+          <p class="action-subtitle">Seguro Limpieza</p>
+          <div class="el-three d-flex row"><img src="./img/icons/ins.png" alt="Icono limpiar">
+            <div class="d-flex">
+              <p>1</p>
+              <input type="checkbox">
+            </div>
+          </div>
+        </div>
+        <div class="set-description pop">Escoge los items que necesitas comprar a diario.
+        </div>
+
+      </div>
+    </section>
+    <section id="main-calcs" class="d-flex">
+      <div id="calcs-top"></div>
+      <div id="calcs-body" class="d-flex row bl">
+        <div id="calcs-title">Cálculos</div>
+        <div id="rent" class="d-flex">
+          <p id="rent-title" class="bl">Renta:</p>
+          <p id="rent-calc" class="bl">NE</p>
+        </div>
+        <div id="tasks" class="d-flex">
+          <p id="tasks-title" class="bl">Tareas:</p>
+          <p id="tasks-calc" class="bl">NE</p>
+        </div>
+        <div id="expenses" class="d-flex">
+          <p id="expenses-title" class="bl">Gastos:</p>
+          <p id="expenses-calc" class="bl">NE</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="d-flex">
+    <p class="credits pop">Versión a0.0.1. Hecho por <a href="">orozCoding</a> / <a href="">@ElProfeNFT</a></p>
+  </footer>
+  <script src="./js/app.js"></script>
+</body>
+
+</html>
