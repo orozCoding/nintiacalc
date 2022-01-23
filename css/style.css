@@ -71,7 +71,7 @@ section {
   width: 200px;
   height: 350px;
   border: solid 2px white;
-  background-color: #333;
+  background-color: #333333;
   border-radius: 20px;
   color: white;
   justify-content: space-between;
@@ -114,7 +114,7 @@ section {
 
 #hab-input:focus {
   outline: none;
-  color: #000;
+  color: #000000;
   background-color: #e7b22c;
 }
 
@@ -141,7 +141,7 @@ section {
 .set-input:focus {
   outline: none;
   background-color:  #e7b22c;
-  color: #000;
+  color: #000000;
 }
 
 .set-description {
@@ -245,7 +245,7 @@ color: #d6a425;
 #price-input {
   width: 80px;
   background: rgba(255, 252, 60, 0.459);
-  border: #333 dotted 2px;
+  border: #333333 dotted 2px;
   text-align: center;
   overflow: hidden;
   font-size: 25px;
