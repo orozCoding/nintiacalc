@@ -4,7 +4,7 @@ The Nintia Estate Calculator is a simple calculator for Nintia Estate players.
 
 The calculator allows players to calculate their possible daily profit according to their own personal investments.
 
-Read about how the calculations are made [HERE](./docu.md)
+Read about how the calculations are made [HERE](https://github.com/orozCoding/nintiacalc/blob/main/docu.md)
 
 ## Preview
 
@@ -12,7 +12,7 @@ Read about how the calculations are made [HERE](./docu.md)
 
 ## Live Demo
 
-[LIVE DEMO](https://orozcoding.github.io/tokenstoclaim/)
+[LIVE DEMO](https://orozcoding.github.io/nintiacalc/)
 
 ## Built With
 
