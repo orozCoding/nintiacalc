@@ -104,7 +104,7 @@ section {
   width: 100px;
   background:none;
   border: white dotted 2px;
-  color: white;
+  color:  #e7b22c;
   text-align: center;
   overflow: hidden;
   font-size: 25px;
@@ -114,12 +114,34 @@ section {
 
 #hab-input:focus {
   outline: none;
-  color: black;
-  background-color: #fcffb4;
+  color: #000;
+  background-color: #e7b22c;
 }
 
 .action-subtitle {
   font-size: 25px;
+}
+
+.set-boxes {
+  accent-color: #e7b22c;
+}
+
+.set-input {
+  width: 30px;
+  background:none;
+  border: white dotted 2px;
+  color:  #e7b22c;
+  text-align: center;
+  overflow: hidden;
+  font-size: 20px;
+  font-family: 'Bebas Neue', 'Courier New', Courier, monospace;
+  padding: 2px;
+}
+
+.set-input:focus {
+  outline: none;
+  background-color:  #e7b22c;
+  color: #000;
 }
 
 .set-description {

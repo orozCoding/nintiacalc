@@ -31,7 +31,7 @@
           <div class="el-three d-flex row"><img src="./img/icons/clean.png" alt="Icono limpiar">
             <div class="d-flex">
               <p>15/15</p>
-              <input type="checkbox">
+              <input type="checkbox" id="cb-clean" class="set-boxes">
             </div>
           </div>
         </div>
@@ -40,7 +40,7 @@
           <div class="el-three d-flex row"><img src="./img/icons/repair.png" alt="Icono limpiar">
             <div class="d-flex">
               <p>5/5</p>
-              <input type="checkbox">
+              <input type="checkbox" id="cb-repair" class="set-boxes">
             </div>
           </div>
         </div>
@@ -53,8 +53,7 @@
           <p class="action-subtitle">Valla</p>
           <div class="el-three d-flex row"><img src="./img/icons/fence.png" alt="Icono limpiar">
             <div class="d-flex">
-              <p>1</p>
-              <input type="checkbox">
+              <input type="number" id="input-fence" class="set-input">
             </div>
           </div>
         </div>
@@ -62,8 +61,7 @@
           <p class="action-subtitle">Seguro Limpieza</p>
           <div class="el-three d-flex row"><img src="./img/icons/ins.png" alt="Icono limpiar">
             <div class="d-flex">
-              <p>1</p>
-              <input type="checkbox">
+              <input type="number" id="input-insurance" class="set-input">
             </div>
           </div>
         </div>
@@ -86,15 +84,15 @@
           </div>
           <div id="expenses" class="d-flex">
             <p id="expenses-title" class="bl">Gastos:</p>
-            <p id="expenses-calc" class="bl">NE</p>
+            <p id="expenses-calc" class="bl">0 NE</p>
           </div>
         </div>
         <div id="results-line" class="d-flex row">
           <div id="results-title">Profit:</div>
           <div>
-            <div id="results-ne">4560 NE al día</div>
-            <div id="results-ninti">50 $Ninti al día</div>
-            <div id="results-usd">$10 USD al día</div>
+            <div id="results-ne">0 NE al día</div>
+            <div id="results-ninti">0 $Ninti al día</div>
+            <div id="results-usd">$0 USD al día</div>
           </div>
         </div>
         <div id="price-line" class="d-flex">
@@ -115,7 +113,7 @@
   <footer class="d-flex">
     <p class="credits pop">Versión a0.0.1. Hecho por <a href="">orozCoding</a> / <a href="">@ElProfeNFT</a></p>
   </footer>
-  <script src="./js/app.js"></script>
+  <script type="module" src="./js/app.js"></script>
 </body>
 
 </html>
