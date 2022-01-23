@@ -173,6 +173,18 @@ section {
   border-radius: 20px;
 }
 
+#rent-calc {
+  color:rgb(12, 175, 66)
+}
+
+#tasks-calc {
+color: #d6a425;
+}
+
+#expenses-calc {
+  color: #c02020
+}
+
 #calcs-line1 {
   gap: 20px;
 }
@@ -195,9 +207,35 @@ section {
   gap: 30px;
 }
 
+#results-ne {
+  color:  rgb(21, 107, 187)
+}
+
+#results-ninti {
+  color: #d6a425;
+}
+
+#results-usd {
+  color:rgb(12, 175, 66)
+}
+
+#results-usd-7,
+#results-usd-30 {
+  font-size: 20px;
+}
+
 #price-description,
-#price-disc {
+#price-disc,
+#price-docu {
   font-size: 12px;
+}
+
+#price-description {
+  margin-top: 20px;
+}
+
+#price-docu a {
+  color: #c02020;
 }
 
 #price-wrap1 {
@@ -223,14 +261,42 @@ footer {
   margin-top: 5px;
 }
 
-@media screen and (max-width: 500px) {
+footer a,
+footer a:active,
+footer a:visited {
+  color: #e7b22c;
+}
+
+@media screen and (max-width: 580px) {
   #main-settings {
     flex-direction: column;
   }
 
-  #calcs-body {
+  #main-calcs {
+    width: 100%;
     flex-direction: column;
   }
+  
+  #calcs-body {
+    margin-top: 30px;
+    height: 100%;
+    background-image: url("../img/bg/bg2.jpg");
+    gap: 30px;
+    font-size: 30px;
+    padding: 30px 80px;
+    border-radius: 20px;
+    flex-direction: column;
+  }
+
+  #calcs-line1 {
+    flex-direction: column;
+  }
+
+  #results-line {
+    flex-direction: column;
+  }
+
+  
 }
 
 /* extra settings */

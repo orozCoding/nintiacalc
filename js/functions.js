@@ -6,6 +6,15 @@ const saveUser = (obj) => localStorage.setItem('user', JSON.stringify(obj));
 const checkUser = () => {
   if (!getUser()) {
     saveUser(obj);
+    location.reload();
+  }
+}
+
+const checkVersion = () => {
+  const user = getUser();
+  if(user.ver !== obj.ver){
+    localStorage.clear();
+    location.reload();
   }
 }
 
@@ -116,7 +125,6 @@ const calcProfit = () => {
 const calcNinti = () => {
   const profit = calcProfit();
   const ninti = profit / 125;
-  console.log('priting ninti ' + ninti);
   return Number(ninti);
 }
 
@@ -150,13 +158,56 @@ const printUSD = () => {
   usdDom.textContent = `$${calcUSD()} USD al día.`
 }
 
+const calcUsdDays = (days) => {
+  return Number(calcUSD() * days).toFixed(2);
+}
+
+const printUsdDays = () => {
+  const usd7 = document.getElementById('results-usd-7');
+  const usd30 = document.getElementById('results-usd-30');
+
+  usd7.textContent = `$${calcUsdDays(7)} USD cada 7 días`;
+  usd30.textContent = `$${calcUsdDays(30)} USD cada 30 días`;
+}
+
 const printCalcs = () => {
   printRent();
   printTasks();
   printExpenses();
   printProfit();
   printUSD();
+  printUsdDays();
+}
+
+const addEventListeners = () => {
+  const roomsInput = document.getElementById('hab-input');
+roomsInput.addEventListener('keyup', () => {
+  updateRooms();
+  printCalcs();
+})
+
+const boxes = document.querySelectorAll('.set-boxes');
+boxes.forEach((box) => {
+  box.addEventListener('change', () => {
+    updateBoxes();
+    printCalcs();
+  })
+})
+
+const setInputs = document.querySelectorAll('.set-input');
+setInputs.forEach((input) => {
+  input.addEventListener('keyup', () => {
+    updateBoxes();
+    printCalcs();
+  })
+})
+
+const priceInput = document.getElementById('price-input');
+priceInput.addEventListener('keyup', () => {
+  updatePrice();
+  printCalcs();
+})
 }
 
 
-export { checkUser, printUser, updateRooms, updateBoxes, printCalcs, updatePrice };
+export { checkUser, printUser, updateRooms, updateBoxes, printCalcs, updatePrice, addEventListeners, checkVersion };

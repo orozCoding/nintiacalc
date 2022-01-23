@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="icon" type="image/x-icon" href="./img/icon.ico">
   <title>Nintia Calc</title>
 </head>
 
@@ -93,25 +94,38 @@
             <div id="results-ne">0 NE al día</div>
             <div id="results-ninti">0 $Ninti al día</div>
             <div id="results-usd">$0 USD al día</div>
+              <div id="results-usd-7">$0 USD cada 7 días</div>
+              <div id="results-usd-30">$0 USD cada 30 días</div>
           </div>
         </div>
         <div id="price-line" class="d-flex">
           <div id="price-wrap1" class="d-flex row">
-          <div id="price-title"><p>Precio NINTI: </p></div>
-          <input type="number" id="price-input">
-          <div id="price-usd">usd</div>
-        </div>
+            <div id="price-title">
+              <p>Precio NINTI: </p>
+            </div>
+            <input type="number" id="price-input">
+            <div id="price-usd">usd</div>
+          </div>
           <div class="d-flex">
-          <div id="price-description" class="pop"><p>Ingresa el valor actual del NINTI</p></div>
-          <div id="price-disc" class="pop"><p>Cuando NINTI sea listado en CoinGecko, 
-            el precio se calculará automáticamente.</p></div>
+            <div id="price-description" class="pop">
+              <p>Ingresa el valor actual del NINTI</p>
+            </div>
+            <div id="price-disc" class="pop">
+              <p>Cuando NINTI sea listado en CoinGecko,
+                el precio se calculará automáticamente.</p>
+            </div>
+            <div id="price-docu" class="pop">
+              <p>Puedes leer sobre cómo se realizan los cálculos <a href="./docu.md">en este enlace.</a></p>
+            </div>
           </div>
         </div>
       </div>
     </section>
   </main>
   <footer class="d-flex">
-    <p class="credits pop">Versión a0.0.1. Hecho por <a href="">orozCoding</a> / <a href="">@ElProfeNFT</a></p>
+    <p class="credits pop">Todos los diseños pertenecen a <a href="https://nintiaestate.com/" target="_blank">Nintia Estate</a></p>
+    <p class="credits pop">Versión a0.0.1. Hecho por <a href="https://github.com/orozCoding" target="_blank">orozCoding</a> / <a href="https://twitter.com/ElProfeNFT" target="_blank">@ElProfeNFT</a></p>
+    <p class="credits pop">Envía tus sugerencias en el <a href="https://discord.gg/r3u3Q4gQaf" target="_blank">Discord</a></p>
   </footer>
   <script type="module" src="./js/app.js"></script>
 </body>
