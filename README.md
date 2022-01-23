@@ -8,8 +8,7 @@ Read about how the calculations are made [HERE](./docu.md)
 
 ## Preview
 
-![Preview1](./img/readme/prev1.png)
-![Preview2](./img/readme/prev2.png)
+![Preview1](./img/preview.png)
 
 ## Live Demo
 
