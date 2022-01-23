@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*, h1, h2, p {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a, a::after, a:visited,
+a:active, a:hover {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.d-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row {
+  flex-direction: row;
+  justify-content: center;
+}
+
+.pop {
+  font-family: 'Poppins', sans-serif;
+}
+
+main {
+  width:100%;
+}
+
+body {
+  font-family: 'Bebas Neue', 'Courier New', Courier, monospace;
+  background-image: url("../img/bg/bg.jpg");
+  background-color: black;
+  text-align: center;
+  justify-content: space-between;
+  color: white;
+}
+
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#page-title {
+  padding-top: 20px 0;
+  text-align: center;
+  color: #e7b22c;
+  font-size: 60px;
+}
+
+
+
+#main-title {
+  padding: 10px 0;
+  text-align: center;
+  color: #ffffff;
+  font-size: 35px;
+  padding-bottom: 20px;
+}
+
+#main-settings {
+  gap: 30px;
+}
+
+.set-cards {
+  width: 200px;
+  height: 350px;
+  border: solid 2px white;
+  background-color: #333;
+  border-radius: 20px;
+  color: white;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.set-picture img {
+  position: relative;
+  top: -15px;
+  display: block;
+  max-width: 100%;
+}
+
+.hab-title,
+.action-title {
+  font-size: 32px;
+  line-height: 30px;
+}
+
+.hab-title {
+  margin-top: -20px;
+}
+
+.action-title {
+  padding-top: 20px;
+}
+
+#hab-input {
+  width: 100px;
+  background:none;
+  border: white dotted 2px;
+  color:  #e7b22c;
+  text-align: center;
+  overflow: hidden;
+  font-size: 25px;
+  font-family: 'Bebas Neue', 'Courier New', Courier, monospace;
+  padding: 2px;
+}
+
+#hab-input:focus {
+  outline: none;
+  color: #000;
+  background-color: #e7b22c;
+}
+
+.action-subtitle {
+  font-size: 25px;
+}
+
+.set-boxes {
+  accent-color: #e7b22c;
+}
+
+.set-input {
+  width: 30px;
+  background:none;
+  border: white dotted 2px;
+  color:  #e7b22c;
+  text-align: center;
+  overflow: hidden;
+  font-size: 20px;
+  font-family: 'Bebas Neue', 'Courier New', Courier, monospace;
+  padding: 2px;
+}
+
+.set-input:focus {
+  outline: none;
+  background-color:  #e7b22c;
+  color: #000;
+}
+
+.set-description {
+  font-size: 12px;
+  padding: 5px 10px;
+}
+
+#set-tasks img, 
+#set-items img {
+  width: 60px;
+}
+
+.el-three {
+  gap: 15px;
+}
+
+#main-calcs {
+  width: 100%;
+  flex-direction: column;
+}
+
+#calcs-body {
+  margin-top: 30px;
+  height: 100%;
+  background-image: url("../img/bg/bg2.jpg");
+  gap: 30px;
+  font-size: 30px;
+  padding: 30px 80px;
+  border-radius: 20px;
+}
+
+#rent-calc {
+  color:rgb(12, 175, 66)
+}
+
+#tasks-calc {
+color: #d6a425;
+}
+
+#expenses-calc {
+  color: #c02020
+}
+
+#calcs-line1 {
+  gap: 20px;
+}
+
+.bl {
+  color: black;
+}
+
+.credits {
+  bottom: 1px;
+  font-size: 10px;
+}
+
+#results-title,
+#calcs-title {
+  font-size: 60px;
+}
+
+#results-line {
+  gap: 30px;
+}
+
+#results-ne {
+  color:  rgb(21, 107, 187)
+}
+
+#results-ninti {
+  color: #d6a425;
+}
+
+#results-usd {
+  color:rgb(12, 175, 66)
+}
+
+#results-usd-7,
+#results-usd-30 {
+  font-size: 20px;
+}
+
+#price-description,
+#price-disc,
+#price-docu {
+  font-size: 12px;
+}
+
+#price-description {
+  margin-top: 20px;
+}
+
+#price-docu a {
+  color: #c02020;
+}
+
+#price-wrap1 {
+  gap: 20px;
+}
+
+#price-input {
+  width: 80px;
+  background: rgba(255, 252, 60, 0.459);
+  border: #333 dotted 2px;
+  text-align: center;
+  overflow: hidden;
+  font-size: 25px;
+  font-family: 'Bebas Neue', 'Courier New', Courier, monospace;
+  padding: 2px;
+}
+
+#price-input:focus {
+  outline: none;
+}
+
+footer {
+  margin-top: 5px;
+}
+
+footer a,
+footer a:active,
+footer a:visited {
+  color: #e7b22c;
+}
+
+@media screen and (max-width: 580px) {
+  #main-settings {
+    flex-direction: column;
+  }
+
+  #main-calcs {
+    width: 100%;
+    flex-direction: column;
+  }
+  
+  #calcs-body {
+    margin-top: 30px;
+    height: 100%;
+    background-image: url("../img/bg/bg2.jpg");
+    gap: 30px;
+    font-size: 30px;
+    padding: 30px 80px;
+    border-radius: 20px;
+    flex-direction: column;
+  }
+
+  #calcs-line1 {
+    flex-direction: column;
+  }
+
+  #results-line {
+    flex-direction: column;
+  }
+
+  
+}
+
+/* extra settings */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="icon" type="image/x-icon" href="./img/icon.ico">
+  <title>Nintia Calculator</title>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E6EECR6H3Y"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E6EECR6H3Y');
+</script>
+</head>
+
+<body class="d-flex">
+  <header>
+    <h1 id="page-title"> Calculadora Nintia Estate </h1>
+  </header>
+  <main>
+    <h2 id="main-title"> Profit Diario </h2>
+    <section id="main-settings" class="d-flex row">
+      <div id="set-hab" class="set-cards d-flex">
+        <div class="set-picture d-flex"><img src="./img/houses/hs-blue.jpg" alt="blue house"></div>
+        <p class="hab-title">Habitaciones</p>
+        <div class="set-action d-flex">
+          <input type="number" id="hab-input">
+        </div>
+        <div class="set-description d-flex pop">Escribe las habitaciones que tienes en total.</div>
+      </div>
+      <div id="set-tasks" class="set-cards d-flex">
+        <p class="action-title">Tareas Diarias</p>
+        <div class="item d-flex">
+          <p class="action-subtitle">Limpiar</p>
+          <div class="el-three d-flex row"><img src="./img/icons/clean.png" alt="Icono limpiar">
+            <div class="d-flex">
+              <p>15/15</p>
+              <input type="checkbox" id="cb-clean" class="set-boxes">
+            </div>
+          </div>
+        </div>
+        <div class="item d-flex">
+          <p class="action-subtitle">Reparar</p>
+          <div class="el-three d-flex row"><img src="./img/icons/repair.png" alt="Icono limpiar">
+            <div class="d-flex">
+              <p>5/5</p>
+              <input type="checkbox" id="cb-repair" class="set-boxes">
+            </div>
+          </div>
+        </div>
+        <div class="set-description pop">Escoge las actividades que realizarás diariamente.
+        </div>
+      </div>
+      <div id="set-items" class="set-cards d-flex">
+        <p class="action-title">Gastos Diarios</p>
+        <div class="item d-flex">
+          <p class="action-subtitle">Valla</p>
+          <div class="el-three d-flex row"><img src="./img/icons/fence.png" alt="Icono limpiar">
+            <div class="d-flex">
+              <input type="number" id="input-fence" class="set-input">
+            </div>
+          </div>
+        </div>
+        <div class="item d-flex">
+          <p class="action-subtitle">Seguro Limpieza</p>
+          <div class="el-three d-flex row"><img src="./img/icons/ins.png" alt="Icono limpiar">
+            <div class="d-flex">
+              <input type="number" id="input-insurance" class="set-input">
+            </div>
+          </div>
+        </div>
+        <div class="set-description pop">Escoge los items que necesitas comprar a diario.
+        </div>
+
+      </div>
+    </section>
+    <section id="main-calcs" class="d-flex">
+      <div id="calcs-body" class="d-flex bl">
+        <div id="calcs-line1" class="d-flex row">
+          <div id="calcs-title">Cálculos</div>
+          <div id="rent" class="d-flex">
+            <p id="rent-title" class="bl">Renta:</p>
+            <p id="rent-calc" class="bl">NE</p>
+          </div>
+          <div id="tasks" class="d-flex">
+            <p id="tasks-title" class="bl">Tareas:</p>
+            <p id="tasks-calc" class="bl">NE</p>
+          </div>
+          <div id="expenses" class="d-flex">
+            <p id="expenses-title" class="bl">Gastos:</p>
+            <p id="expenses-calc" class="bl">0 NE</p>
+          </div>
+        </div>
+        <div id="results-line" class="d-flex row">
+          <div id="results-title">Profit:</div>
+          <div>
+            <div id="results-ne">0 NE al día</div>
+            <div id="results-ninti">0 $Ninti al día</div>
+            <div id="results-usd">$0 USD al día</div>
+              <div id="results-usd-7">$0 USD cada 7 días</div>
+              <div id="results-usd-30">$0 USD cada 30 días</div>
+          </div>
+        </div>
+        <div id="price-line" class="d-flex">
+          <div id="price-wrap1" class="d-flex row">
+            <div id="price-title">
+              <p>Precio NINTI: </p>
+            </div>
+            <input type="number" id="price-input">
+            <div id="price-usd">usd</div>
+          </div>
+          <div class="d-flex">
+            <div id="price-description" class="pop">
+              <p>Ingresa el valor actual del NINTI</p>
+            </div>
+            <div id="price-disc" class="pop">
+              <p>Cuando NINTI sea listado en CoinGecko,
+                el precio se calculará automáticamente.</p>
+            </div>
+            <div id="price-docu" class="pop">
+              <p>Puedes leer sobre cómo se realizan los cálculos <a href="./docu.md">en este enlace.</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="d-flex">
+    <p class="credits pop">Todos los diseños pertenecen a <a href="https://nintiaestate.com/" target="_blank">Nintia Estate</a></p>
+    <p class="credits pop">Versión a-0.0.1. Hecho por <a href="https://github.com/orozCoding" target="_blank">orozCoding</a> / <a href="https://twitter.com/ElProfeNFT" target="_blank">@ElProfeNFT</a></p>
+    <p class="credits pop">Envía tus sugerencias en el <a href="https://discord.gg/r3u3Q4gQaf" target="_blank">Discord</a></p>
+  </footer>
+  <script type="module" src="./js/app.js"></script>
+</body>
+
+</html>
