@@ -9,7 +9,7 @@ const obj = {
   bonus2: false,
   bonus4: false,
   bonus6: false,
-  ver: 'a-0.0.3'
+  ver: 'a-0.0.1'
 }
 
 export { obj };

@@ -93,7 +93,7 @@ section {
 }
 
 .hab-title {
-  margin-top: -20px;
+  margin-top: -14px;
 }
 
 .action-title {
@@ -120,6 +120,10 @@ section {
 
 #set-bonus {
   gap: 5px;
+}
+
+#text-bonus {
+  margin-bottom: -11px;
 }
 
 .action-subtitle {

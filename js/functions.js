@@ -12,7 +12,7 @@ const checkUser = () => {
 
 const checkVersion = () => {
   const user = getUser();
-  if(user.ver !== obj.ver){
+  if (user.ver !== obj.ver) {
     localStorage.clear();
     location.reload();
   }
@@ -50,7 +50,7 @@ const printUser = () => {
 
   const priceInput = document.getElementById('price-input');
   priceInput.value = price;
-  
+
 }
 
 const updateRooms = () => {
@@ -83,10 +83,47 @@ const updateBoxes = () => {
   saveUser(user);
 }
 
+const setBonusFalse = (bonus) => {
+  const id = `bonus${bonus.id.charAt(6)}`;
+  const user = getUser();
+  user[id] = false;
+  saveUser(user);
+}
+
+const setBonusTrue = (bonus) => {
+  const id = `bonus${bonus.id.charAt(6)}`;
+  const user = getUser();
+  user[id] = true;
+  saveUser(user);
+}
+
+const updateBonus = (bonus) => {
+  const allBonus = document.querySelectorAll('#set-bonus input')
+  allBonus.forEach((box) => {
+    box.checked = false;
+    setBonusFalse(box);
+  })
+  bonus.checked = true;
+  setBonusTrue(bonus);
+}
+
+const calcBonus = (profit) => {
+  const user = getUser();
+  if(user.bonus0 === true){
+    return profit;
+  } else if (user.bonus2 === true){
+    return (profit * 102) / 100;
+  } else if (user.bonus4 === true){
+    return (profit * 104) / 100;
+  } else if (user.bonus6 === true){
+    return (profit * 106) / 100;
+  }
+}
+
 const calcRent = () => {
   let user = getUser();
   const rent = user.rooms * 150;
-  return rent;
+  return calcBonus(rent);
 }
 
 const printRent = () => {
@@ -193,33 +230,43 @@ const printCalcs = () => {
 
 const addEventListeners = () => {
   const roomsInput = document.getElementById('hab-input');
-roomsInput.addEventListener('keyup', () => {
-  updateRooms();
-  printCalcs();
-})
-
-const boxes = document.querySelectorAll('.set-boxes');
-boxes.forEach((box) => {
-  box.addEventListener('change', () => {
-    updateBoxes();
+  roomsInput.addEventListener('keyup', () => {
+    updateRooms();
     printCalcs();
   })
-})
 
-const setInputs = document.querySelectorAll('.set-input');
-setInputs.forEach((input) => {
-  input.addEventListener('keyup', () => {
-    updateBoxes();
+  const bonusBoxes = document.querySelectorAll('#set-bonus input');
+  bonusBoxes.forEach((bonusBox) => {
+    bonusBox.addEventListener('change', ()=> {
+      updateBonus(bonusBox);
+      printCalcs();
+    })
+  })
+
+  const boxes = document.querySelectorAll('.set-boxes');
+  boxes.forEach((box) => {
+    box.addEventListener('change', () => {
+      updateBoxes();
+      printCalcs();
+    })
+  })
+
+  const setInputs = document.querySelectorAll('.set-input');
+  setInputs.forEach((input) => {
+    input.addEventListener('keyup', () => {
+      updateBoxes();
+      printCalcs();
+    })
+  })
+
+  const priceInput = document.getElementById('price-input');
+  priceInput.addEventListener('keyup', () => {
+    updatePrice();
     printCalcs();
   })
-})
-
-const priceInput = document.getElementById('price-input');
-priceInput.addEventListener('keyup', () => {
-  updatePrice();
-  printCalcs();
-})
 }
 
 
-export { checkUser, printUser, updateRooms, updateBoxes, printCalcs, updatePrice, addEventListeners, checkVersion };
+export { checkUser, printUser, updateRooms,
+  updateBoxes, printCalcs, updatePrice, addEventListeners,
+  checkVersion };
