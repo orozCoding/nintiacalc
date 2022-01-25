@@ -10,7 +10,7 @@ La intención inicialmente es calcular las ganancias y gastos fijos y de rutina,
 
 ### RENTA
 
-Cada habitación produce 150 NE al día, de acuerdo al apartado [RENTA](https://whitepaper.nintiaestate.com/v/espanol/farming/rent) en el whitepaper.
+Cada habitación produce 180 NE al día, (de acuerdo al apartado [RENTA](https://whitepaper.nintiaestate.com/v/espanol/farming/rent) en el whitepaper da 150 NE pero esto fue actualizado).
 
 ### TAREAS DIARIAS
 
@@ -20,7 +20,7 @@ Visita la [TIENDA](https://game.nintiaestate.com/game/store) para corroborar los
 
 Añadimos 40 NE por cada limpieza.
 
-15 limpiezas al día = 600 NE.
+25 limpiezas al día = 1000 NE.
 
 Explicación:
 
