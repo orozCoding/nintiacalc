@@ -242,27 +242,27 @@ color: #d6a425;
   margin-top: 20px;
 }
 
+#price-disc a,
 #price-docu a {
   color: #c02020;
+}
+
+#price-disc {
+  padding-top: 10px;
 }
 
 #price-wrap1 {
   gap: 20px;
 }
 
-#price-input {
-  width: 80px;
+#text-price {
   background: rgba(255, 252, 60, 0.459);
   border: #333333 dotted 2px;
   text-align: center;
   overflow: hidden;
   font-size: 25px;
   font-family: 'Bebas Neue', 'Courier New', Courier, monospace;
-  padding: 2px;
-}
-
-#price-input:focus {
-  outline: none;
+  padding: 2px 10px;
 }
 
 footer {

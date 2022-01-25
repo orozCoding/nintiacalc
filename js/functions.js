@@ -1,4 +1,4 @@
-import { obj } from './obj.js'
+import { obj, api } from './obj.js'
 
 const getUser = () => JSON.parse(localStorage.getItem('user'));
 const saveUser = (obj) => localStorage.setItem('user', JSON.stringify(obj));
@@ -48,10 +48,25 @@ const printUser = () => {
   const insuranceBox = document.getElementById('input-insurance');
   insuranceBox.value = insurance;
 
-  const priceInput = document.getElementById('price-input');
-  priceInput.value = price;
+  const priceText = document.getElementById('text-price');
+  priceText.textContent = Number(price);
 
 }
+
+function fetchPrice(api) {
+  let price = fetch(api)
+    .then((response) => response.json())
+    .then((data) => {
+      return data;
+    });
+  return price;
+}
+
+async function getPrice(api) {
+  let price = fetchPrice(api)
+  const a = await price;
+  return Number(a.data.price);
+};
 
 const updateRooms = () => {
   const input = document.getElementById('hab-input');
@@ -186,87 +201,91 @@ const printProfit = () => {
 
 }
 
-const updatePrice = () => {
-  const priceInput = document.getElementById('price-input');
+const updatePrice = async () => {
+  let price = await getPrice(api); 
   let user = getUser();
-  user.price = Number(priceInput.value);
+  user.price = price;
   saveUser(user);
 }
 
-const calcUSD = () => {
-  let user = getUser();
+
+const calcUSD = async () => {
   let ninti = calcNinti();
-  const { price } = user;
+
+  let price = await getPrice(api);
 
   const dailyUsd = Number(ninti * price);
   return dailyUsd.toFixed(2);
 }
 
-const printUSD = () => {
+const printUSD = async () => {
   const usdDom = document.getElementById('results-usd');
-  usdDom.textContent = `$${calcUSD()} USD al día.`
+  usdDom.textContent = `$${await calcUSD()} USD al día.`
 }
 
-const calcUsdDays = (days) => {
-  return Number(calcUSD() * days).toFixed(2);
+const calcUsdDays = async (days) => {
+  return Number(await calcUSD() * days).toFixed(2);
 }
 
-const printUsdDays = () => {
+const printUsdDays = async () => {
   const usd7 = document.getElementById('results-usd-7');
   const usd30 = document.getElementById('results-usd-30');
 
-  usd7.textContent = `$${calcUsdDays(7)} USD cada 7 días`;
-  usd30.textContent = `$${calcUsdDays(30)} USD cada 30 días`;
+  usd7.textContent = `$${await calcUsdDays(7)} USD cada 7 días`;
+  usd30.textContent = `$${await calcUsdDays(30)} USD cada 30 días`;
 }
 
-const printCalcs = () => {
+const printPrice = async () => {
+  await updatePrice();
+  const user = getUser();
+  const priceText = document.getElementById('text-price');
+  priceText.textContent = `$${user.price.toFixed(2)} USD`;
+}
+
+const printCalcs = async () => {
   printRent();
   printTasks();
   printExpenses();
   printProfit();
-  printUSD();
-  printUsdDays();
+  await printUSD();
+  await printUsdDays();
+  await printPrice();
 }
 
 const addEventListeners = () => {
   const roomsInput = document.getElementById('hab-input');
-  roomsInput.addEventListener('keyup', () => {
+  roomsInput.addEventListener('keyup', async () => {
     updateRooms();
-    printCalcs();
+    await printCalcs();
   })
 
   const bonusBoxes = document.querySelectorAll('#set-bonus input');
   bonusBoxes.forEach((bonusBox) => {
-    bonusBox.addEventListener('change', ()=> {
+    bonusBox.addEventListener('change', async ()=> {
       updateBonus(bonusBox);
-      printCalcs();
+      await printCalcs();
     })
   })
 
   const boxes = document.querySelectorAll('.set-boxes');
   boxes.forEach((box) => {
-    box.addEventListener('change', () => {
+    box.addEventListener('change', async () => {
       updateBoxes();
-      printCalcs();
+      await printCalcs();
     })
   })
 
   const setInputs = document.querySelectorAll('.set-input');
   setInputs.forEach((input) => {
-    input.addEventListener('keyup', () => {
+    input.addEventListener('keyup', async () => {
       updateBoxes();
-      printCalcs();
+      await printCalcs();
     })
   })
 
-  const priceInput = document.getElementById('price-input');
-  priceInput.addEventListener('keyup', () => {
-    updatePrice();
-    printCalcs();
-  })
 }
 
 
 export { checkUser, printUser, updateRooms,
-  updateBoxes, printCalcs, updatePrice, addEventListeners,
-  checkVersion };
+  updateBoxes, printCalcs, addEventListeners,
+  checkVersion, fetchPrice, updatePrice };
