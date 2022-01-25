@@ -137,7 +137,7 @@ const calcBonus = (profit) => {
 
 const calcRent = () => {
   let user = getUser();
-  const rent = user.rooms * 150;
+  const rent = user.rooms * 180;
   return calcBonus(rent);
 }
 
