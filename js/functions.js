@@ -19,10 +19,22 @@ const checkVersion = () => {
 }
 
 const printUser = () => {
-  const { rooms, fence, insurance, clean, repair, price } = getUser();
+  const { rooms, fence, insurance, clean, repair, price, bonus0, bonus2, bonus4, bonus6 } = getUser();
 
   const roomsInput = document.getElementById('hab-input');
   roomsInput.value = rooms;
+
+  const bonus0Input = document.getElementById('bonus-0');
+  bonus0Input.checked = bonus0;
+
+  const bonus2Input = document.getElementById('bonus-2');
+  bonus2Input.checked = bonus2;
+
+  const bonus4Input = document.getElementById('bonus-4');
+  bonus4Input.checked = bonus4;
+
+  const bonus6Input = document.getElementById('bonus-6');
+  bonus6Input.checked = bonus6;
 
   const cleanBox = document.getElementById('cb-clean');
   cleanBox.checked = clean;
@@ -38,6 +50,7 @@ const printUser = () => {
 
   const priceInput = document.getElementById('price-input');
   priceInput.value = price;
+  
 }
 
 const updateRooms = () => {
@@ -64,7 +77,6 @@ const updateBoxes = () => {
     user.repair = true;
   } else { user.repair = false };
 
-
   user.fence = Number(fence.value);
   user.insurance = Number(insurance.value);
 
@@ -88,11 +100,11 @@ const calcTasks = () => {
   let repair = 0;
 
   if (user.clean) {
-    clean = 600;
+    clean = 25 * 40;
   }
 
   if (user.repair) {
-    repair = 400;
+    repair = 5 * 80;
   }
 
   let tasks = clean + repair;

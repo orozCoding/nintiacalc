@@ -5,7 +5,11 @@ const obj = {
   fence: 0,
   insurance: 0,
   price: 0,
-  ver: 'a-0.0.1'
+  bonus0: true,
+  bonus2: false,
+  bonus4: false,
+  bonus6: false,
+  ver: 'a-0.0.3'
 }
 
 export { obj };
