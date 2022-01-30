@@ -49,8 +49,9 @@ section {
   justify-content: center;
 }
 
-#page-title {
-  padding-top: 20px 0;
+#page-title,
+#page-title-mobile {
+  padding: 20px 20px;
   text-align: center;
   color: #e7b22c;
   font-size: 60px;
@@ -402,6 +403,18 @@ footer a:visited {
 }
 
 @media screen and (max-width: 580px) {
+  body {
+    min-width: 100%;
+  }
+
+  #page-title {
+    display: none;
+  }
+
+  #page-title-mobile {
+    display:block;
+    font-size: 60px;
+  }
   #main-settings {
     flex-direction: column;
   }
@@ -411,12 +424,17 @@ footer a:visited {
     flex-direction: column;
   }
 
+  #calcs-left,
+  #calcs-right {
+    width: 100%;
+  }
+
   #calcs-body {
     height: 100%;
     background-image: url("../img/bg/bg2.jpg");
     gap: 30px;
     font-size: 30px;
-    padding: 30px 80px;
+    padding: 30px 5px;
     border-radius: 20px;
     flex-direction: column;
   }
@@ -425,11 +443,18 @@ footer a:visited {
     flex-direction: column;
   }
 
+  #calcs-right {
+    align-self: auto;
+    gap: 25px;
+  }
+
   #results-line {
     flex-direction: column;
   }
 
-  
+  footer {
+    max-width: 90%;
+  }
 }
 
 /* extra settings */
@@ -438,4 +463,8 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.d-off {
+  display: none;
 }
