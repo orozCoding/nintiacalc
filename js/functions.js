@@ -348,6 +348,44 @@ const printCalcs = async () => {
 }
 
 const addEventListeners = () => {
+  const limit3 = document.querySelectorAll('.limit-3');
+  limit3.forEach((input) => {
+    input.addEventListener('keyup', ()=> {
+      if(input.value > 3){
+        input.value = 3;
+      }
+    })
+  })
+
+  const limit5 = document.querySelectorAll('.limit-5');
+  limit5.forEach((input) => {
+    input.addEventListener('keyup', ()=> {
+      if(input.value > 5){
+        input.value = 5;
+      }
+    })
+  })
+
+  const limit12 = document.querySelectorAll('.limit-12');
+  limit12.forEach((input) => {
+    input.addEventListener('keyup', ()=> {
+      if(input.value > 12){
+        input.value = 12;
+      }
+    })
+  })
+
+  const limit25 = document.querySelectorAll('.limit-25');
+  limit25.forEach((input) => {
+    input.addEventListener('keyup', ()=> {
+      if(input.value > 25){
+        input.value = 25;
+      }
+    })
+  })
+  
+
+  
   const roomsInput = document.getElementById('hab-input');
   roomsInput.addEventListener('keyup', async () => {
     if (roomsInput.value > 3000) {
@@ -431,6 +469,12 @@ const addEventListeners = () => {
     localStorage.clear();
     location.reload();
   })
+
+  document.addEventListener("wheel", function(event){
+    if(document.activeElement.type === "number"){
+        document.activeElement.blur();
+    }
+});
 }
 
 
