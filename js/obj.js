@@ -5,6 +5,8 @@ const obj = {
   fence: 0,
   insurance: 0,
   price: 0,
+  ne: 0,
+  inv: 0,
   bonus0: true,
   bonus2: false,
   bonus4: false,
