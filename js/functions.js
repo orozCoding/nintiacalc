@@ -345,7 +345,7 @@ const printExchangeUsd = () => {
   if (input.value <= 0 || input.value === null || input.value === undefined) {
     div.innerHTML = `Ingresa $USD`;
   } else {
-    div.innerHTML = `<p>${input.value} $USD = &nbsp;</p><p class="cl-yellow">$${exchangeUsdNinti()} $NINTI</p>`;
+    div.innerHTML = `<p>${input.value} $USD = &nbsp;</p><p class="cl-yellow">${exchangeUsdNinti()} $NINTI</p>`;
   }
 }
 
@@ -438,6 +438,12 @@ const addEventListeners = () => {
       exchangeUsdInput.value = exchangeUsdInput.value.substring(0, 7);
     }
     printExchangeUsd();
+  })
+
+  const resetLink = document.getElementById('reset');
+  resetLink.addEventListener('click', () => {
+    localStorage.clear();
+    location.reload();
   })
 }
 

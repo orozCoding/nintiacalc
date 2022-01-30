@@ -171,7 +171,7 @@ section {
 }
 
 #main-calcs {
-  margin-top: 20px;
+  margin-top: 30px;
   width: 90%;
   align-items: center;
   justify-content: center;
@@ -187,6 +187,7 @@ section {
 #price-line {
   height: auto;
   padding: 30px 0;
+  border: rgb(12, 175, 66) solid 2px;
 }
 
 #price-title {
@@ -269,18 +270,16 @@ color: #d6a425;
   padding-top: 10px;
 }
 
-#price-wrap1 {
-}
-
 #text-price {
-  background: rgba(255, 255, 255, 0.692);
-  border: #333333 dotted 2px;
+  box-shadow: #000 5px 10px;
+  border: #000 dotted 2px;
+  background-color: rgb(255, 255, 255);
   text-align: center;
   overflow: hidden;
-  font-size: 25px;
+  font-size: 50px;
   font-family: 'Bebas Neue', 'Courier New', Courier, monospace;
   padding: 2px 10px;
-  color: #000000;
+  color: rgb(5, 126, 45);
 }
 
 #calcs-right {
@@ -385,7 +384,8 @@ color: #d6a425;
 } 
 
 footer {
-  margin-top: 5px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 footer a,
