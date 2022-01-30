@@ -18,41 +18,6 @@ const checkVersion = () => {
   }
 }
 
-const printUser = () => {
-  const { rooms, fence, insurance, clean, repair, price, bonus0, bonus2, bonus4, bonus6 } = getUser();
-
-  const roomsInput = document.getElementById('hab-input');
-  roomsInput.value = rooms;
-
-  const bonus0Input = document.getElementById('bonus-0');
-  bonus0Input.checked = bonus0;
-
-  const bonus2Input = document.getElementById('bonus-2');
-  bonus2Input.checked = bonus2;
-
-  const bonus4Input = document.getElementById('bonus-4');
-  bonus4Input.checked = bonus4;
-
-  const bonus6Input = document.getElementById('bonus-6');
-  bonus6Input.checked = bonus6;
-
-  const cleanBox = document.getElementById('cb-clean');
-  cleanBox.checked = clean;
-
-  const repairBox = document.getElementById('cb-repair');
-  repairBox.checked = repair;
-
-  const fenceBox = document.getElementById('input-fence');
-  fenceBox.value = fence;
-
-  const insuranceBox = document.getElementById('input-insurance');
-  insuranceBox.value = insurance;
-
-  const priceText = document.getElementById('text-price');
-  priceText.textContent = Number(price);
-
-}
-
 function fetchPrice(api) {
   let price = fetch(api)
     .then((response) => response.json())
@@ -201,6 +166,27 @@ const printProfit = () => {
 
 }
 
+const convertNE = () => {
+  const user = getUser();
+  const ne = user.ne;
+  const ninti = ne / 125;
+  return Number(ninti).toFixed(2);
+}
+
+const convertNinti = () => {
+  const ninti = convertNE();
+  const user = getUser();
+  const usd = ninti * user.price
+  return Number(usd).toFixed(2);
+}
+
+const printConvertedNE = () => {
+  const convertionNE = document.getElementById('converter-ninti');
+  convertionNE.innerHTML = `Tienes ${convertNE()} $NINTI`;
+  const convertionUSD = document.getElementById('converter-usd')
+  convertionUSD.innerHTML =`que son $${convertNinti()} USD.`
+}
+
 const updatePrice = async () => {
   let price = await getPrice(api); 
   let user = getUser();
@@ -283,6 +269,56 @@ const addEventListeners = () => {
     })
   })
 
+  const neInput = document.getElementById('converter-input');
+  neInput.addEventListener('keyup', () => {
+    if(neInput.value !== 0){
+      const user = getUser();
+      user.ne = neInput.value;
+      saveUser(user);
+      printConvertedNE();
+    }
+  })
+
+}
+
+const printUser = () => {
+  const { rooms, fence, insurance,
+    clean, repair, price, ne, 
+    bonus0, bonus2, bonus4, bonus6 } = getUser();
+
+  const roomsInput = document.getElementById('hab-input');
+  roomsInput.value = rooms;
+
+  const bonus0Input = document.getElementById('bonus-0');
+  bonus0Input.checked = bonus0;
+
+  const bonus2Input = document.getElementById('bonus-2');
+  bonus2Input.checked = bonus2;
+
+  const bonus4Input = document.getElementById('bonus-4');
+  bonus4Input.checked = bonus4;
+
+  const bonus6Input = document.getElementById('bonus-6');
+  bonus6Input.checked = bonus6;
+
+  const cleanBox = document.getElementById('cb-clean');
+  cleanBox.checked = clean;
+
+  const repairBox = document.getElementById('cb-repair');
+  repairBox.checked = repair;
+
+  const fenceBox = document.getElementById('input-fence');
+  fenceBox.value = fence;
+
+  const insuranceBox = document.getElementById('input-insurance');
+  insuranceBox.value = insurance;
+
+  const priceText = document.getElementById('text-price');
+  priceText.textContent = Number(price);
+
+  const converterInput = document.getElementById('converter-input');
+  converterInput.value = ne;
+  printConvertedNE();
 }
 
 
