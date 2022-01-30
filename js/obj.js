@@ -4,6 +4,7 @@ const obj = {
   repair: 0,
   fence: 0,
   insurance: 0,
+  selfRepair: 0,
   price: 0,
   ne: 0,
   inv: 0,
@@ -14,7 +15,7 @@ const obj = {
   bonus2: false,
   bonus4: false,
   bonus6: false,
-  ver: 'a-0.2.9'
+  ver: 'a-0.2.2'
 }
 
 const api = 'https://api.pancakeswap.info/api/v2/tokens/0xfa57ff4670f9016069e799a51a3186d03991e431'

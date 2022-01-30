@@ -46,6 +46,7 @@ const updateBoxes = () => {
   const repair = document.getElementById('input-repair');
   const fence = document.getElementById('input-fence');
   const insurance = document.getElementById('input-insurance');
+  const selfRepair = document.getElementById('input-self-repair');
 
   let user = getUser();
 
@@ -53,6 +54,7 @@ const updateBoxes = () => {
   user.repair = Number(repair.value);
   user.fence = Number(fence.value);
   user.insurance = Number(insurance.value);
+  user.selfRepair = Number(selfRepair.value);
 
   saveUser(user);
 }
@@ -123,7 +125,8 @@ const calcExpenses = () => {
   let user = getUser();
   let fences = user.fence * 30;
   let insurance = user.insurance * 80;
-  const expenses = fences + insurance;
+  let selfRepair = user.selfRepair * 20;
+  const expenses = fences + insurance + selfRepair;
   return Number(expenses);
 }
 
@@ -481,7 +484,8 @@ const addEventListeners = () => {
 const printUser = () => {
   const { rooms, fence, insurance,
     clean, repair, price, ne,
-    bonus0, bonus2, bonus4, bonus6 } = getUser();
+    bonus0, bonus2, bonus4, bonus6,
+  selfRepair } = getUser();
 
   const roomsInput = document.getElementById('hab-input');
   roomsInput.value = rooms;
@@ -504,11 +508,14 @@ const printUser = () => {
   const repairInput = document.getElementById('input-repair');
   repairInput.value = repair;
 
-  const fenceBox = document.getElementById('input-fence');
-  fenceBox.value = fence;
+  const fenceInput = document.getElementById('input-fence');
+  fenceInput.value = fence;
 
-  const insuranceBox = document.getElementById('input-insurance');
-  insuranceBox.value = insurance;
+  const insuranceInput = document.getElementById('input-insurance');
+  insuranceInput.value = insurance;
+
+  const selfRepairInput = document.getElementById('input-self-repair');
+  selfRepairInput.value = selfRepair;
 
   const priceText = document.getElementById('text-price');
   priceText.textContent = Number(price);
