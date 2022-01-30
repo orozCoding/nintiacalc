@@ -18,7 +18,7 @@
     gtag('config', 'G-E6EECR6H3Y');
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5965181251207654"
-  crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
 </head>
 
 <body class="d-flex">
@@ -94,33 +94,8 @@
       </div>
     </section>
     <section id="main-calcs" class="d-flex row">
-      <div id="calcs-body" class="d-flex bl">
-        <div id="calcs-line1" class="d-flex">
-          <div id="calcs-title">Cálculos</div>
-          <div id="rent" class="d-flex row">
-            <p id="rent-title" class="bl">Renta:&nbsp;</p>
-            <p id="rent-calc" class="bl"> NE</p>
-          </div>
-          <div id="tasks" class="d-flex row">
-            <p id="tasks-title" class="bl">Tareas:&nbsp;</p>
-            <p id="tasks-calc" class="bl">NE</p>
-          </div>
-          <div id="expenses" class="d-flex row">
-            <p id="expenses-title" class="bl">Gastos:&nbsp;</p>
-            <p id="expenses-calc" class="bl">0 NE</p>
-          </div>
-        </div>
-        <div id="results-line" class="d-flex row">
-          <div>
-            <div id="results-title">Profit:</div>
-            <div id="results-ne">0 NE al día</div>
-            <div id="results-ninti">0 $Ninti al día</div>
-            <div id="results-usd">$0 USD al día</div>
-            <div id="results-usd-7">$0 USD cada 7 días</div>
-            <div id="results-usd-30">$0 USD cada 30 días</div>
-          </div>
-        </div>
-        <div id="price-line" class="d-flex">
+      <div id="calcs-left" class="d-flex">
+        <div id="price-line" class="calcs-cards d-flex">
           <div id="price-wrap1" class="d-flex">
             <div id="price-title">
               <p>Precio NINTI: </p>
@@ -128,48 +103,81 @@
             <p id="text-price"></p>
           </div>
           <div class="d-flex">
-          
+          </div>
+        </div>
+        <div id="calcs-body" class="d-flex bl">
+          <div id="calcs-line1" class="d-flex">
+            <div id="calcs-title">Cálculos</div>
+            <div id="rent" class="d-flex row">
+              <p id="rent-title" class="bl">Renta:&nbsp;</p>
+              <p id="rent-calc" class="bl"> NE</p>
+            </div>
+            <div id="tasks" class="d-flex row">
+              <p id="tasks-title" class="bl">Tareas:&nbsp;</p>
+              <p id="tasks-calc" class="bl">NE</p>
+            </div>
+            <div id="expenses" class="d-flex row">
+              <p id="expenses-title" class="bl">Gastos:&nbsp;</p>
+              <p id="expenses-calc" class="bl">0 NE</p>
+            </div>
+          </div>
+          <div id="results-line" class="d-flex row">
+            <div>
+              <div id="results-title">Profit:</div>
+              <div id="results-ne">0 NE al día</div>
+              <div id="results-ninti">0 $Ninti al día</div>
+              <div id="results-usd">$0 USD al día</div>
+              <div id="results-usd-7">$0 USD cada 7 días</div>
+              <div id="results-usd-30">$0 USD cada 30 días</div>
+            </div>
           </div>
         </div>
       </div>
+
       <div id="calcs-right" class="d-flex bl">
-        <div id="converter" class="calcs-cards">
+        <div id="converter" class="calcs-cards d-flex">
           <p class="calcs-title">Convertidor</p>
           <p class="calcs-desc pop">¿Cuántos NE tienes?</p>
           <input type="number" id="converter-input">
-          <p id="converter-ninti" class="calcs-desc pop d-flex row">Tienes 75 Ninti </p>
-          <p id="converter-usd" class="calcs-desc pop d-flex row">que son $20 usd </p>
+          <p id="converter-ninti" class="calcs-desc pop d-flex row"></p>
+          <p id="converter-usd" class="calcs-desc pop d-flex row"></p>
         </div>
-        <div id="roi-calculator" class="calcs-cards">
+        <div id="roi-calculator" class="calcs-cards d-flex">
           <p class="calcs-title">Calculadora ROI</p>
           <p class="pop">¿Cuánto $USD invertiste?</p>
-          <input type="number" id="invested-input">
+          <input type="number" id="invested-input" class="roi-input">
           <p class="pop">¿Cuánto has producido?</p>
-          <input type="number" id="produced-input">
+          <input type="number" id="produced-input" class="roi-input">
           <p id="roi-days" class="calcs-desc pop">Ingresa $USD.</p>
         </div>
-        <div class="calcs-cards">
-          <div id="price-disc" class="pop">
-            <p>Precio del NINTI extraído automáticamente
-               de <a href="https://pancakeswap.finance/" target="_blank" rel="noopener noreferrer">PancakeSwap</a>
-            </p>
-          </div>
-          <div id="price-docu" class="pop">
-            <p>Puedes leer sobre cómo se realizan los cálculos <a
-                href="https://github.com/orozCoding/nintiacalc/blob/main/docu.md">en este enlace.</a></p>
-          </div>
-          <p class="credits pop">Todos los diseños pertenecen a <a href="https://nintiaestate.com/" target="_blank">Nintia
-            Estate</a></p>
-        <p class="credits pop">Versión a-0.1.0. Hecho por <a href="https://github.com/orozCoding"
-            target="_blank">orozCoding</a> / <a href="https://twitter.com/ElProfeNFT" target="_blank">@ElProfeNFT</a></p>
-        <p class="credits pop">Envía tus sugerencias en el <a href="https://discord.gg/r3u3Q4gQaf"
-            target="_blank">Discord</a></p>
+        <div id="ninti-exchange" class="calcs-cards d-flex">
+          <p class="calcs-title">NINTI Exchange</p>
+          <p class="exchange-subtitle pop">$NINTI > $USD</p>
+          <input type="number" id="exchange-ninti-usd">
+          <p class="exchange-result pop">Ingresa $NINTI</p>
+          <p class="exchange-subtitle pop">$USD > $NINTI</p>
+          <input type="number" id="exchange-usd-ninti">
+          <p class="exchange-result pop">Ingresa $USD</p>
         </div>
-      </div>
     </section>
   </main>
   <footer class="d-flex">
-
+    <div id="price-disc" class="pop">
+      <p>Precio del NINTI extraído automáticamente
+        de <a href="https://pancakeswap.finance/" target="_blank" rel="noopener noreferrer">PancakeSwap</a>
+      </p>
+    </div>
+    <div id="price-docu" class="pop">
+      <p>Puedes leer sobre cómo se realizan los cálculos <a
+          href="https://github.com/orozCoding/nintiacalc/blob/main/docu.md">en este enlace.</a></p>
+    </div>
+    <p class="credits pop">Todos los diseños pertenecen a <a href="https://nintiaestate.com/" target="_blank">Nintia
+        Estate</a></p>
+    <p class="credits pop">Versión a-0.1.0. Hecho por <a href="https://github.com/orozCoding"
+        target="_blank">orozCoding</a> / <a href="https://twitter.com/ElProfeNFT" target="_blank">@ElProfeNFT</a></p>
+    <p class="credits pop">Envía tus sugerencias en el <a href="https://discord.gg/r3u3Q4gQaf"
+        target="_blank">Discord</a></p>
+    </div>
   </footer>
   <script type="module" src="./js/app.js"></script>
 </body>

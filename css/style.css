@@ -176,8 +176,24 @@ section {
   gap: 30px;
 }
 
-#calcs-body {
+#calcs-left{
   width: 30%;
+  max-width: 260px;
+  gap: 30px;
+}
+
+#price-line {
+  height: auto;
+  padding: 30px 0;
+}
+
+#price-title {
+  font-size: 30px;
+}
+
+#calcs-body {
+  width: 100%;
+  max-width: 250px;
   height: 100%;
   background-image: url("../img/bg/bg2.jpg");
   gap: 30px;
@@ -213,9 +229,6 @@ color: #d6a425;
 #results-title,
 #calcs-title {
   font-size: 50px;
-}
-
-#results-line {
 }
 
 #results-ne {
@@ -258,30 +271,36 @@ color: #d6a425;
 }
 
 #text-price {
-  background: rgba(255, 252, 60, 0.459);
+  background: rgba(255, 255, 255, 0.692);
   border: #333333 dotted 2px;
   text-align: center;
   overflow: hidden;
   font-size: 25px;
   font-family: 'Bebas Neue', 'Courier New', Courier, monospace;
   padding: 2px 10px;
+  color: #000000;
 }
 
 #calcs-right {
   width: 30%;
+  max-width: 250px;
   gap: 30px;
+  justify-content: space-between;
+  align-self: stretch;
 }
-
-
 
 .calcs-cards {
   width: 100%;
+  max-width: 250px;
   height: 150px;
   border: solid 2px white;
   background-color: #333333;
   border-radius: 20px;
   color: white;
   justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  gap: 2px;
 }
 
 #roi-calculator {
@@ -297,7 +316,8 @@ color: #d6a425;
   font-size: 13px;
 }
 
-#converter-input {
+#converter-input,
+.roi-input {
   width: 100px;
   background:none;
   border: white dotted 2px;
@@ -309,12 +329,32 @@ color: #d6a425;
   padding: 2px;
 }
 
+.roi-input {
+  font-size: 20px;
+}
+
+#invested-input {
+  color: #ff9595;
+}
+
+#produced-input {
+  color: rgb(12, 175, 66);
+}
+
 .color-ninti {
   color: #e7b22c;
 }
 
 .color-usd {
   color: rgb(12, 175, 66);
+}
+
+#roi-days {
+  color: #e7b22c;
+}
+
+#ninti-exchange {
+  height: fit-content;
 }
 
 
@@ -337,7 +377,7 @@ footer a:visited {
     width: 100%;
     flex-direction: column;
   }
-  
+
   #calcs-body {
     height: 100%;
     background-image: url("../img/bg/bg2.jpg");
