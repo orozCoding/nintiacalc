@@ -169,6 +169,7 @@ section {
 }
 
 #main-calcs {
+  margin-top: 20px;
   width: 90%;
   align-items: center;
   justify-content: center;
@@ -176,7 +177,6 @@ section {
 }
 
 #calcs-body {
-  margin-top: 30px;
   width: 30%;
   height: 100%;
   background-image: url("../img/bg/bg2.jpg");
@@ -247,7 +247,7 @@ color: #d6a425;
 
 #price-disc a,
 #price-docu a {
-  color: #c02020;
+  color: #ff9595;
 }
 
 #price-disc {
@@ -282,6 +282,11 @@ color: #d6a425;
   border-radius: 20px;
   color: white;
   justify-content: space-between;
+}
+
+#roi-calculator {
+  height: 200px;
+
 }
 
 .calcs-title {
@@ -334,7 +339,6 @@ footer a:visited {
   }
   
   #calcs-body {
-    margin-top: 30px;
     height: 100%;
     background-image: url("../img/bg/bg2.jpg");
     gap: 30px;

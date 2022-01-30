@@ -180,6 +180,13 @@ const convertNinti = () => {
   return Number(usd).toFixed(2);
 }
 
+const updateConversion = () => {
+  const neInput = document.getElementById('converter-input');
+  const user = getUser();
+  user.ne = Number(neInput.value);
+  saveUser(user);
+}
+
 const printConvertedNE = () => {
   const convertionNE = document.getElementById('converter-ninti');
   const convertionUSD = document.getElementById('converter-usd');
@@ -200,14 +207,20 @@ const updatePrice = async () => {
   saveUser(user);
 }
 
+const saveUSD = (usd) => {
+  const user = getUser();
+  user.usd = Number(usd);
+  saveUser(user);
+}
 
 const calcUSD = async () => {
   let ninti = calcNinti();
 
   let price = await getPrice(api);
 
-  const dailyUsd = Number(ninti * price);
-  return dailyUsd.toFixed(2);
+  const dailyUsd = Number(ninti * price).toFixed(2);
+  saveUSD(dailyUsd);
+  return dailyUsd;
 }
 
 const printUSD = async () => {
@@ -234,14 +247,71 @@ const printPrice = async () => {
   priceText.textContent = `$${user.price.toFixed(2)} USD`;
 }
 
+const calcRoi = async () => {
+  await updatePrice();
+  const { usd, inv, prod } = getUser();
+  const roi = (inv - prod) / usd;
+  return Number(roi);
+};
+
+const updateRoi = async () => {
+  const roi = Number(await calcRoi());
+  const user = getUser();
+  user.roi = roi;
+  saveUser(user);
+};
+
+const updateInv = () => {
+  const investedInput = document.getElementById('invested-input');
+  const user = getUser();
+  user.inv = Number(investedInput.value);
+  saveUser(user);
+}
+
+const printRoi = async () => {
+  await updateRoi();
+  const user = getUser();
+  const roiDaysDom = document.getElementById('roi-days');
+  const investedInput = document.getElementById('invested-input');
+  if (investedInput.value <= 0) {
+    roiDaysDom.innerHTML = `Ingresa $USD.`;
+  } else if (user.roi <= 0 && user.roi !== null) {
+    roiDaysDom.innerHTML = `Inversión recuperada.`;
+  } else if (user.roi > 0 && user.roi < 0.9){
+    roiDaysDom.innerHTML = `ROI casi logrado.`;
+  } else if (user.roi > 0) {
+    roiDaysDom.innerHTML = `ROI en ${user.roi.toFixed(0)} días.`;
+  } else {
+    roiDaysDom.innerHTML = `No hay habitaciones.`;
+  }
+}
+
+const printRoiInputs = () => {
+  const { inv, prod } = getUser();
+  const investedInput = document.getElementById('invested-input');
+  investedInput.value = inv;
+  const producedInput = document.getElementById('produced-input');
+  producedInput.value = prod;
+
+}
+
+const updateProduced = () => {
+  const producedInput = document.getElementById('produced-input');
+  const user = getUser();
+  user.prod = Number(producedInput.value);
+  saveUser(user);
+}
+
 const printCalcs = async () => {
   printRent();
   printTasks();
   printExpenses();
   printProfit();
+  printConvertedNE();
   await printUSD();
   await printUsdDays();
   await printPrice();
+  await printRoi();
 }
 
 const addEventListeners = () => {
@@ -278,14 +348,24 @@ const addEventListeners = () => {
   const neInput = document.getElementById('converter-input');
   neInput.addEventListener('keyup', () => {
     if (neInput.value !== 0) {
-      const user = getUser();
-      user.ne = neInput.value;
-      saveUser(user);
+      updateConversion();
       printConvertedNE();
     }
   })
 
+  const investedInput = document.getElementById('invested-input');
+  investedInput.addEventListener('keyup', async () => {
+    updateInv();
+    await printRoi();
+  })
+
+  const producedInput = document.getElementById('produced-input');
+  producedInput.addEventListener('keyup', async () => {
+    updateProduced();
+    await printRoi();
+  })
 }
+
 
 const printUser = () => {
   const { rooms, fence, insurance,
@@ -331,5 +411,6 @@ const printUser = () => {
 export {
   checkUser, printUser, updateRooms,
   updateBoxes, printCalcs, addEventListeners,
-  checkVersion, fetchPrice, updatePrice
+  checkVersion, fetchPrice, updatePrice,
+  printRoiInputs
 };
