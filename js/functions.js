@@ -244,7 +244,7 @@ const printPrice = async () => {
   await updatePrice();
   const user = getUser();
   const priceText = document.getElementById('text-price');
-  priceText.textContent = `$${user.price.toFixed(2)} USD`;
+  priceText.textContent = `$${user.price.toFixed(3)} USD`;
 }
 
 const calcRoi = async () => {
@@ -486,6 +486,8 @@ const printUser = () => {
   const converterInput = document.getElementById('converter-input');
   converterInput.value = ne;
   printConvertedNE();
+  printRoiInputs();
+  printExchangeInputs();
 }
 
 

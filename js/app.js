@@ -2,11 +2,11 @@ import { checkUser, updatePrice, printUser,
   printCalcs, addEventListeners,
   checkVersion, printRoiInputs, printExchangeInputs } from "./functions.js";
 
-updatePrice();
-checkUser();
-checkVersion();
-printUser();
-printCalcs();
-printRoiInputs();
-printExchangeInputs();
-addEventListeners();
+  window.addEventListener('load', ()=> {
+    updatePrice();
+    checkUser();
+    checkVersion();
+    printUser();
+    printCalcs();
+    addEventListeners();
+  })
