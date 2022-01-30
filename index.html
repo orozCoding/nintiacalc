@@ -137,14 +137,22 @@
 
       <div id="calcs-right" class="d-flex bl">
         <div id="converter" class="calcs-cards d-flex">
-          <p class="calcs-title">Convertidor</p>
+          <div class="title-img d-flex row">
+            <img src="./img/icons/ne.png" alt="NE icon">
+            <p class="calcs-title">Convertidor</p>
+            <img src="./img/icons/ne.png" alt="NE icon">
+          </div>
           <p class="calcs-desc pop">¿Cuántos NE tienes?</p>
-          <input type="number" max="10" id="converter-input" >
+          <input type="number" max="10" id="converter-input">
           <p id="converter-ninti" class="calcs-desc pop d-flex row"></p>
           <p id="converter-usd" class="calcs-desc pop d-flex row"></p>
         </div>
         <div id="roi-calculator" class="calcs-cards d-flex">
-          <p class="calcs-title">Calculadora ROI</p>
+          <div class="title-img d-flex row">
+            <img src="./img/icons/bag.png" alt="Bag icon">
+            <p class="calcs-title">Cálculo ROI</p>
+            <img src="./img/icons/bag.png" alt="Bag icon">
+          </div>
           <p class="roi-description pop">¿Cuánto $USD invertiste?</p>
           <input type="number" id="invested-input" class="roi-input">
           <p class="roi-description pop">¿Cuánto has producido?</p>
@@ -152,7 +160,11 @@
           <p id="roi-days" class="calcs-desc pop">Ingresa $USD.</p>
         </div>
         <div id="ninti-exchange" class="calcs-cards d-flex">
-          <p class="calcs-title">NINTI Exchange</p>
+          <div class="title-img d-flex row">
+            <img src="./img/icons/ninti.png" alt="Ninti icon">
+            <p class="calcs-title">NINTI Exchange</p>
+            <img src="./img/icons/ninti.png" alt="Bag icon">
+          </div>
           <div id="ninti-to-usd-container">
             <p class="exchange-subtitle pop">$NINTI > $USD</p>
             <input type="number" id="exchange-ninti-usd" class="exchange-input">
@@ -172,7 +184,8 @@
   </main>
   <footer class="d-flex">
     <div id="price-disc" class="pop">
-      <p class="credits pop">Si el sitio va mal,  <a id="reset" href="https://nintiaestate.com/" target="_blank">presiona este enlace</a></p>
+      <p class="credits pop">Si el sitio va mal, <a id="reset" href="https://nintiaestate.com/" target="_blank">presiona
+          este enlace</a></p>
       <p>Precio del NINTI extraído automáticamente
         de <a href="https://pancakeswap.finance/" target="_blank" rel="noopener noreferrer">PancakeSwap</a>
       </p>

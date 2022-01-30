@@ -303,6 +303,15 @@ color: #d6a425;
   gap: 2px;
 }
 
+.title-img {
+  width: 90%;
+  justify-content: space-around;
+}
+
+#calcs-right img {
+  max-width: 30px;
+}
+
 #roi-calculator {
   height: 200px;
 
