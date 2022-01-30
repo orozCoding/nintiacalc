@@ -277,7 +277,7 @@ const printRoi = async () => {
     roiDaysDom.innerHTML = `Ingresa $USD.`;
   } else if (user.roi <= 0 && user.roi !== null) {
     roiDaysDom.innerHTML = `Inversión recuperada.`;
-  } else if (user.roi > 0 && user.roi < 0.9){
+  } else if (user.roi > 0 && user.roi < 0.9) {
     roiDaysDom.innerHTML = `ROI casi logrado.`;
   } else if (user.roi > 0) {
     roiDaysDom.innerHTML = `ROI en ${user.roi.toFixed(0)} días.`;
@@ -300,6 +300,38 @@ const updateProduced = () => {
   const user = getUser();
   user.prod = Number(producedInput.value);
   saveUser(user);
+}
+
+const printExchangeInputs = () => {
+  const input = document.querySelectorAll('.exchange-input');
+  input.forEach((input) => {
+    input.value = 0;
+  })
+}
+
+const exchangeNintiUsd = () => {
+  const input = document.getElementById('exchange-ninti-usd');
+  const { price } = getUser();
+  const exchange = (input.value * price).toFixed(2);
+  return exchange;
+}
+
+const exchangeUsdNinti = () => {
+  const input = document.getElementById('exchange-usd-ninti');
+  const { price } = getUser();
+  const exchange = (price / input.value).toFixed(2);
+  return exchange;
+}
+
+const printExchangeNinti = () => {
+  const input = document.getElementById('exchange-ninti-usd');
+  const div = document.getElementById('exchange-result-ninti');
+
+  if (input.value <= 0 || input.value === null || input.value === undefined) {
+    div.innerHTML = `Ingresa $NINTI`;
+  } else {
+    div.innerHTML = `${input.value} $NINTI = $${exchangeNintiUsd()} USD`;
+  }
 }
 
 const printCalcs = async () => {
@@ -364,6 +396,11 @@ const addEventListeners = () => {
     updateProduced();
     await printRoi();
   })
+
+  const exchangeNintiInput = document.getElementById('exchange-ninti-usd');
+  exchangeNintiInput.addEventListener('keyup', () => {
+    printExchangeNinti();
+  })
 }
 
 
@@ -412,5 +449,5 @@ export {
   checkUser, printUser, updateRooms,
   updateBoxes, printCalcs, addEventListeners,
   checkVersion, fetchPrice, updatePrice,
-  printRoiInputs
+  printRoiInputs, printExchangeInputs
 };

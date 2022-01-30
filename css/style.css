@@ -284,7 +284,6 @@ color: #d6a425;
 #calcs-right {
   width: 30%;
   max-width: 250px;
-  gap: 30px;
   justify-content: space-between;
   align-self: stretch;
 }
@@ -317,6 +316,7 @@ color: #d6a425;
 }
 
 #converter-input,
+.exchange-input,
 .roi-input {
   width: 100px;
   background:none;
@@ -327,6 +327,10 @@ color: #d6a425;
   font-size: 25px;
   font-family: 'Bebas Neue', 'Courier New', Courier, monospace;
   padding: 2px;
+}
+
+.roi-description {
+  font-size: 14px;
 }
 
 .roi-input {
@@ -355,8 +359,24 @@ color: #d6a425;
 
 #ninti-exchange {
   height: fit-content;
+  gap: 15px;
 }
 
+.exchange-input {
+  font-size: 20px;
+}
+
+#exchange-ninti-usd {
+  color:#e7b22c;
+}
+
+#exchange-usd-ninti {
+  color:rgb(12, 175, 66);
+}
+
+.exchange-subtitle  {
+  font-size: 15px;
+}
 
 footer {
   margin-top: 5px;

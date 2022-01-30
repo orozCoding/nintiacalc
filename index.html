@@ -144,20 +144,24 @@
         </div>
         <div id="roi-calculator" class="calcs-cards d-flex">
           <p class="calcs-title">Calculadora ROI</p>
-          <p class="pop">¿Cuánto $USD invertiste?</p>
+          <p class="roi-description pop">¿Cuánto $USD invertiste?</p>
           <input type="number" id="invested-input" class="roi-input">
-          <p class="pop">¿Cuánto has producido?</p>
+          <p class="roi-description pop">¿Cuánto has producido?</p>
           <input type="number" id="produced-input" class="roi-input">
           <p id="roi-days" class="calcs-desc pop">Ingresa $USD.</p>
         </div>
         <div id="ninti-exchange" class="calcs-cards d-flex">
           <p class="calcs-title">NINTI Exchange</p>
+          <div id="ninti-to-usd-container">
           <p class="exchange-subtitle pop">$NINTI > $USD</p>
-          <input type="number" id="exchange-ninti-usd">
-          <p class="exchange-result pop">Ingresa $NINTI</p>
+          <input type="number" id="exchange-ninti-usd" class="exchange-input">
+          <p id="exchange-result-ninti" class="exchange-result pop">Ingresa $NINTI</p>
+        </div>
+          <div id="usd-to-ninti-container">
           <p class="exchange-subtitle pop">$USD > $NINTI</p>
-          <input type="number" id="exchange-usd-ninti">
-          <p class="exchange-result pop">Ingresa $USD</p>
+          <input type="number" id="exchange-usd-ninti" class="exchange-input">
+          <p id="exchange-result-usd" class="exchange-result pop">Ingresa $USD</p>
+        </div>
         </div>
     </section>
   </main>
