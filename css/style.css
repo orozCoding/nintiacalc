@@ -378,6 +378,10 @@ color: #d6a425;
   font-size: 15px;
 }
 
+.exchange-result {
+  font-size: 14px;
+} 
+
 footer {
   margin-top: 5px;
 }
@@ -386,6 +390,14 @@ footer a,
 footer a:active,
 footer a:visited {
   color: #e7b22c;
+}
+
+.cl-yellow {
+  color:#e7b22c;
+}
+
+.cl-green-light {
+  color:rgb(12, 175, 66);
 }
 
 @media screen and (max-width: 580px) {

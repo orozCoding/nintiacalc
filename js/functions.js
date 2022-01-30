@@ -273,16 +273,22 @@ const printRoi = async () => {
   const user = getUser();
   const roiDaysDom = document.getElementById('roi-days');
   const investedInput = document.getElementById('invested-input');
-  if (investedInput.value <= 0) {
-    roiDaysDom.innerHTML = `Ingresa $USD.`;
-  } else if (user.roi <= 0 && user.roi !== null) {
-    roiDaysDom.innerHTML = `Inversión recuperada.`;
-  } else if (user.roi > 0 && user.roi < 0.9) {
-    roiDaysDom.innerHTML = `ROI casi logrado.`;
-  } else if (user.roi > 0) {
-    roiDaysDom.innerHTML = `ROI en ${user.roi.toFixed(0)} días.`;
+
+  if (user.rooms <= 0 || user.rooms === null) {
+    return roiDaysDom.innerHTML = `No hay habitaciones.`;
   } else {
-    roiDaysDom.innerHTML = `No hay habitaciones.`;
+
+    if (investedInput.value <= 0) {
+      return roiDaysDom.innerHTML = `Ingresa $USD.`;
+    } else if (user.roi <= 0 && user.roi !== null) {
+      roiDaysDom.innerHTML = `Inversión recuperada.`;
+    } else if (user.roi > 0 && user.roi < 0.9) {
+      roiDaysDom.innerHTML = `ROI casi logrado.`;
+    } else if (user.roi > 0) {
+      roiDaysDom.innerHTML = `ROI en ${user.roi.toFixed(0)} días.`;
+    } else {
+      roiDaysDom.innerHTML = `No hay habitaciones.`;
+    }
   }
 }
 
@@ -319,18 +325,27 @@ const exchangeNintiUsd = () => {
 const exchangeUsdNinti = () => {
   const input = document.getElementById('exchange-usd-ninti');
   const { price } = getUser();
-  const exchange = (price / input.value).toFixed(2);
+  const exchange = (input.value / price).toFixed(2);
   return exchange;
 }
 
 const printExchangeNinti = () => {
   const input = document.getElementById('exchange-ninti-usd');
   const div = document.getElementById('exchange-result-ninti');
-
   if (input.value <= 0 || input.value === null || input.value === undefined) {
     div.innerHTML = `Ingresa $NINTI`;
   } else {
-    div.innerHTML = `${input.value} $NINTI = $${exchangeNintiUsd()} USD`;
+    div.innerHTML = `<p>${input.value} $NINTI = &nbsp;</p><p class="cl-green-light"> $${exchangeNintiUsd()} USD</p>`;
+  }
+}
+
+const printExchangeUsd = () => {
+  const input = document.getElementById('exchange-usd-ninti');
+  const div = document.getElementById('exchange-result-usd');
+  if (input.value <= 0 || input.value === null || input.value === undefined) {
+    div.innerHTML = `Ingresa $USD`;
+  } else {
+    div.innerHTML = `<p>${input.value} $USD = &nbsp;</p><p class="cl-yellow">$${exchangeUsdNinti()} $NINTI</p>`;
   }
 }
 
@@ -400,6 +415,11 @@ const addEventListeners = () => {
   const exchangeNintiInput = document.getElementById('exchange-ninti-usd');
   exchangeNintiInput.addEventListener('keyup', () => {
     printExchangeNinti();
+  })
+
+  const exchangeUsdInput = document.getElementById('exchange-usd-ninti');
+  exchangeUsdInput.addEventListener('keyup', ()=> {
+    printExchangeUsd();
   })
 }
 
