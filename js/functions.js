@@ -89,13 +89,13 @@ const updateBonus = (bonus) => {
 
 const calcBonus = (profit) => {
   const user = getUser();
-  if(user.bonus0 === true){
+  if (user.bonus0 === true) {
     return profit;
-  } else if (user.bonus2 === true){
+  } else if (user.bonus2 === true) {
     return (profit * 102) / 100;
-  } else if (user.bonus4 === true){
+  } else if (user.bonus4 === true) {
     return (profit * 104) / 100;
-  } else if (user.bonus6 === true){
+  } else if (user.bonus6 === true) {
     return (profit * 106) / 100;
   }
 }
@@ -182,13 +182,19 @@ const convertNinti = () => {
 
 const printConvertedNE = () => {
   const convertionNE = document.getElementById('converter-ninti');
-  convertionNE.innerHTML = `Tienes ${convertNE()} $NINTI`;
-  const convertionUSD = document.getElementById('converter-usd')
-  convertionUSD.innerHTML =`que son $${convertNinti()} USD.`
+  const convertionUSD = document.getElementById('converter-usd');
+  const userNe = document.getElementById('converter-input');
+  if (userNe.value <= 0) {
+    convertionNE.innerHTML = `Ingresa tus NE.`;
+    convertionUSD.innerHTML = ``;
+  } else {
+    convertionNE.innerHTML = `Tienes&nbsp;<p class="color-ninti"> ${convertNE()} $NINTI</p>.`;
+    convertionUSD.innerHTML = `que son&nbsp;<p class="color-usd">$${convertNinti()} USD</p>.`
+  }
 }
 
 const updatePrice = async () => {
-  let price = await getPrice(api); 
+  let price = await getPrice(api);
   let user = getUser();
   user.price = price;
   saveUser(user);
@@ -247,7 +253,7 @@ const addEventListeners = () => {
 
   const bonusBoxes = document.querySelectorAll('#set-bonus input');
   bonusBoxes.forEach((bonusBox) => {
-    bonusBox.addEventListener('change', async ()=> {
+    bonusBox.addEventListener('change', async () => {
       updateBonus(bonusBox);
       await printCalcs();
     })
@@ -271,7 +277,7 @@ const addEventListeners = () => {
 
   const neInput = document.getElementById('converter-input');
   neInput.addEventListener('keyup', () => {
-    if(neInput.value !== 0){
+    if (neInput.value !== 0) {
       const user = getUser();
       user.ne = neInput.value;
       saveUser(user);
@@ -283,7 +289,7 @@ const addEventListeners = () => {
 
 const printUser = () => {
   const { rooms, fence, insurance,
-    clean, repair, price, ne, 
+    clean, repair, price, ne,
     bonus0, bonus2, bonus4, bonus6 } = getUser();
 
   const roomsInput = document.getElementById('hab-input');
@@ -322,6 +328,8 @@ const printUser = () => {
 }
 
 
-export { checkUser, printUser, updateRooms,
+export {
+  checkUser, printUser, updateRooms,
   updateBoxes, printCalcs, addEventListeners,
-  checkVersion, fetchPrice, updatePrice };
+  checkVersion, fetchPrice, updatePrice
+};

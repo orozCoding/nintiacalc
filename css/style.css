@@ -272,6 +272,8 @@ color: #d6a425;
   gap: 30px;
 }
 
+
+
 .calcs-cards {
   width: 100%;
   height: 150px;
@@ -280,6 +282,34 @@ color: #d6a425;
   border-radius: 20px;
   color: white;
   justify-content: space-between;
+}
+
+.calcs-title {
+  font-size: 30px;
+}
+
+.calcs-desc {
+  font-size: 13px;
+}
+
+#converter-input {
+  width: 100px;
+  background:none;
+  border: white dotted 2px;
+  color:  rgb(67, 159, 245);
+  text-align: center;
+  overflow: hidden;
+  font-size: 25px;
+  font-family: 'Bebas Neue', 'Courier New', Courier, monospace;
+  padding: 2px;
+}
+
+.color-ninti {
+  color: #e7b22c;
+}
+
+.color-usd {
+  color: rgb(12, 175, 66);
 }
 
 
