@@ -42,21 +42,15 @@ const updateRooms = () => {
 }
 
 const updateBoxes = () => {
-  const clean = document.getElementById('cb-clean');
-  const repair = document.getElementById('cb-repair');
+  const clean = document.getElementById('input-clean');
+  const repair = document.getElementById('input-repair');
   const fence = document.getElementById('input-fence');
   const insurance = document.getElementById('input-insurance');
 
   let user = getUser();
 
-  if (clean.checked === true) {
-    user.clean = true;
-  } else { user.clean = false };
-
-  if (repair.checked === true) {
-    user.repair = true;
-  } else { user.repair = false };
-
+  user.clean = Number(clean.value);
+  user.repair = Number(repair.value);
   user.fence = Number(fence.value);
   user.insurance = Number(insurance.value);
 
@@ -113,16 +107,8 @@ const printRent = () => {
 
 const calcTasks = () => {
   let user = getUser();
-  let clean = 0;
-  let repair = 0;
-
-  if (user.clean) {
-    clean = 25 * 40;
-  }
-
-  if (user.repair) {
-    repair = 5 * 80;
-  }
+  let clean = 40 * user.clean;
+  let repair = 80 * user.repair;
 
   let tasks = clean + repair;
   return tasks;
@@ -468,11 +454,11 @@ const printUser = () => {
   const bonus6Input = document.getElementById('bonus-6');
   bonus6Input.checked = bonus6;
 
-  const cleanBox = document.getElementById('cb-clean');
-  cleanBox.checked = clean;
+  const cleanInput = document.getElementById('input-clean');
+  cleanInput.value = clean;
 
-  const repairBox = document.getElementById('cb-repair');
-  repairBox.checked = repair;
+  const repairInput = document.getElementById('input-repair');
+  repairInput.value = repair;
 
   const fenceBox = document.getElementById('input-fence');
   fenceBox.value = fence;
