@@ -34,6 +34,7 @@ main {
 }
 
 body {
+  min-width: 800px;
   font-family: 'Bebas Neue', 'Courier New', Courier, monospace;
   background-image: url("../img/bg/bg.jpg");
   background-color: black;

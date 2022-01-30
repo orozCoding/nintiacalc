@@ -364,6 +364,9 @@ const printCalcs = async () => {
 const addEventListeners = () => {
   const roomsInput = document.getElementById('hab-input');
   roomsInput.addEventListener('keyup', async () => {
+    if (roomsInput.value > 3000) {
+      roomsInput.value = roomsInput.value.substring(0, 4);
+    }
     updateRooms();
     await printCalcs();
   })
@@ -395,6 +398,9 @@ const addEventListeners = () => {
   const neInput = document.getElementById('converter-input');
   neInput.addEventListener('keyup', () => {
     if (neInput.value !== 0) {
+      if (neInput.value > 100000000) {
+        neInput.value = neInput.value.substring(0, 9);
+      }
       updateConversion();
       printConvertedNE();
     }
@@ -402,23 +408,35 @@ const addEventListeners = () => {
 
   const investedInput = document.getElementById('invested-input');
   investedInput.addEventListener('keyup', async () => {
+    if (investedInput.value > 1000000) {
+      investedInput.value = investedInput.value.substring(0, 7);
+    }
     updateInv();
     await printRoi();
   })
 
   const producedInput = document.getElementById('produced-input');
   producedInput.addEventListener('keyup', async () => {
+    if (producedInput.value > 1000000) {
+      producedInput.value = producedInput.value.substring(0, 7);
+    }
     updateProduced();
     await printRoi();
   })
 
   const exchangeNintiInput = document.getElementById('exchange-ninti-usd');
   exchangeNintiInput.addEventListener('keyup', () => {
+    if (exchangeNintiInput.value > 10000000) {
+      exchangeNintiInput.value = exchangeNintiInput.value.substring(0, 8);
+    }
     printExchangeNinti();
   })
 
   const exchangeUsdInput = document.getElementById('exchange-usd-ninti');
-  exchangeUsdInput.addEventListener('keyup', ()=> {
+  exchangeUsdInput.addEventListener('keyup', () => {
+    if (exchangeUsdInput.value > 1000000) {
+      exchangeUsdInput.value = exchangeUsdInput.value.substring(0, 7);
+    }
     printExchangeUsd();
   })
 }
