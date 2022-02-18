@@ -127,8 +127,8 @@ const calcNoColorRent = () => {
 
 const calcRent = () => {
   return Math.round(
-    calcBonus(calcNoColorRent() + calcColorsRent())
-    );
+    (calcBonus(calcNoColorRent() + calcColorsRent()) + calcElectricity())
+  );
 }
 
 const printRent = () => {
@@ -367,6 +367,81 @@ const printExchangeUsd = () => {
   }
 }
 
+
+const printElectricity = () => {
+  const check = document.getElementById('elect-check');
+  const user = getUser();
+  const housesInput = document.getElementById('input-houses');
+  housesInput.value = user.houses;
+  const mansionsInput = document.getElementById('input-mansions');
+  mansionsInput.value = user.mansions;
+  const buildingsInput = document.getElementById('input-buildings');
+  buildingsInput.value = user.buildings;
+  const skyscrapersInput = document.getElementById('input-skycrapers');
+  skyscrapersInput.value = user.skyscrapers;
+  check.checked = user.electricity;
+  if (!check.checked) {
+    const inputs = document.querySelectorAll('.elect-input');
+    inputs.forEach((input) => {
+      input.setAttribute('disabled', '');
+      input.classList.add('disabled');
+    })
+  }
+}
+
+const toggleElectDisable = () => {
+  const check = document.getElementById('elect-check');
+  const inputs = document.querySelectorAll('.elect-input');
+  if (!check.checked) {
+    inputs.forEach((input) => {
+      input.setAttribute('disabled', '');
+      input.classList.add('disabled');
+    })
+  } else {
+    inputs.forEach((input) => {
+      if (input.disabled) {
+        input.removeAttribute('disabled');
+      }
+
+      if (input.classList.contains('disabled')) {
+        input.classList.remove('disabled')
+      }
+    })
+  }
+}
+
+const updateElectricity = () => {
+  const check = document.getElementById('elect-check');
+  const housesInput = document.getElementById('input-houses');
+  const mansionsInput = document.getElementById('input-mansions');
+  const buildingsInput = document.getElementById('input-buildings');
+  const skyscrapersInput = document.getElementById('input-skycrapers');
+  const user = getUser();
+  user.electricity = check.checked;
+  user.houses = Number(housesInput.value);
+  user.mansions = Number(mansionsInput.value);
+  user.buildings = Number(buildingsInput.value);
+  user.skyscrapers = Number(skyscrapersInput.value);
+  saveUser(user);
+  printElectricity();
+}
+
+const calcElectricity = () => {
+  const { 
+    electricity, houses, mansions,
+    buildings, skyscrapers
+   } = getUser();
+  
+   if(!electricity) return 0;
+
+   const housesProfit = 340 * houses;
+   const mansionsProfit = 394 * mansions;
+   const buildingsProfit = 466 * buildings;
+   const skyscrapersProfit = 610 * skyscrapers;
+
+   return housesProfit + mansionsProfit + buildingsProfit + skyscrapersProfit;
+}
+
 const printCalcs = async () => {
   printRent();
   printTasks();
@@ -456,7 +531,7 @@ const limitInputs = () => {
   colorInput.forEach((input) => {
     input.addEventListener('keyup', () => {
       const user = getUser();
-      if(input.value > user.rooms){
+      if (input.value > user.rooms) {
         input.value = '';
       }
     })
@@ -476,7 +551,7 @@ const addEventListeners = () => {
   })
 
   const bonusInput = document.getElementById('bonus-input');
-  
+
   bonusInput.addEventListener('keyup', async () => {
     updateBonus();
     await printCalcs();
@@ -503,7 +578,7 @@ const addEventListeners = () => {
   colorInputs.forEach((input) => {
     input.addEventListener('keyup', async () => {
       updateColors();
-      if(sumColors() > getUser().rooms){
+      if (sumColors() > getUser().rooms) {
         input.value = '';
       }
       await printCalcs();
@@ -561,6 +636,21 @@ const addEventListeners = () => {
     location.reload();
   })
 
+  const electCheck = document.getElementById('elect-check');
+  electCheck.addEventListener('change', async () => {
+    toggleElectDisable();
+    updateElectricity();
+    await printCalcs();
+  })
+
+  const electInputs = document.querySelectorAll('.elect-input');
+  electInputs.forEach((input) => {
+    input.addEventListener('keyup', async () => {
+      updateElectricity();
+      await printCalcs();
+    })
+  })
+
   document.addEventListener("wheel", function (event) {
     if (document.activeElement.type === "number") {
       document.activeElement.blur();
@@ -604,6 +694,7 @@ const printUser = () => {
   printRoiInputs();
   printExchangeInputs();
   printColors();
+  printElectricity();
 }
 
 

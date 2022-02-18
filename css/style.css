@@ -432,10 +432,6 @@ color: #d6a425;
   margin-top: 25px;
 }
 
-#elect-left-col {
-  gap: 7px;
-}
-
 #electricity-container {
   max-width: none;
   width: 100%;
@@ -445,14 +441,26 @@ color: #d6a425;
   gap: 10px;
 }
 
+#elect-left-col {
+  gap: 7px;
+}
+
 #electricity-calc img {
   max-width: 40px;
 }
 
 #electricity-checker {
   width: 100%;
+  gap: 8px;
+}
+
+.elect-info {
+  font-size: 12px;
+  line-height: 12px;
+}
+
+#electricity-checker p {
   font-size: 15px;
-  gap: 20px;
 }
 
 .buildings {
@@ -491,6 +499,10 @@ color: #d6a425;
   width: 30px;
   padding: 2px;
   height: 24px;
+}
+
+.disabled {
+  color: grey;
 }
 
 footer {
