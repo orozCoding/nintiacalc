@@ -423,7 +423,72 @@ color: #d6a425;
 
 .exchange-result {
   font-size: 14px;
-} 
+}
+
+#electricity-calc {
+  max-width: 100%;
+  width: 400px;
+  margin-top: 25px;
+}
+
+#electricity-container {
+  max-width: none;
+  width: 100%;
+  font-size: 30px;
+  justify-content: center;
+  padding: 15px;
+  gap: 10px;
+}
+
+#electricity-calc img {
+  max-width: 40px;
+}
+
+#electricity-checker {
+  width: 100%;
+  font-size: 15px;
+  gap: 20px;
+}
+
+.buildings {
+  width: 100%;
+}
+
+#elect-right-col {
+  width: 100%;
+}
+
+.buildings p {
+  font-size: 15px;
+}
+
+.buildings-items {
+  width: 100%;
+  gap: 2px;
+}
+
+.building p {
+  font-size: 20px;
+}
+.building input {
+  width: 10px;
+}
+
+.buildings-row {
+  width: 100%;
+  justify-content: space-between;
+}
+
+.building {
+  width: 100%;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.building input {
+  width: 30px;
+  padding: 2px;
+}
 
 footer {
   margin-top: 15px;

@@ -129,9 +129,47 @@
 
       </div>
     </section>
-    <section id="electricity-calc">
-      <div id="electricity-container" class="calcs-cards d-flex">
-        <p>ELECTRICITY </p>
+    <section id="electricity-calc" class="d-flex">
+      <div id="electricity-container" class="calcs-cards d-flex row">
+        <div id="elect-left-col" class="d-flex">
+          <div id="elect-title" class="d-flex row">
+            <img src="./img/icons/elect.png" alt="electricity icon">
+            <p>ELECTRICIDAD</p>
+            <img src="./img/icons/elect.png" alt="electricity icon">
+          </div>
+          <div id="electricity-checker" class="d-flex row">
+            <p class="pop">¿Sistema activo?</p>
+            <input type="checkbox">
+          </div>
+        </div>
+        <div id="elect-right-col" class="d-flex">
+          <div class="buildings d-flex">
+
+            <div class="buildings-items d-flex col">
+
+              <div class="building d-flex row">
+                <p>Casas:</p>
+                <input type="number" id="input-houses">
+              </div>
+              <div class="building d-flex row">
+                <p>Mansiones:</p>
+                <input type="number" id="input-mansions">
+              </div>
+
+
+              <div class="building d-flex row">
+                <p>Edificios:</p>
+                <input type="number" id="input-buildings">
+              </div>
+              <div class="building d-flex row">
+                <p>Rascacielos:</p>
+                <input type="number" id="input-skycrapers">
+              </div>
+
+            </div>
+
+          </div>
+        </div>
       </div>
     </section>
 
