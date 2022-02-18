@@ -15,7 +15,11 @@ const obj = {
   roi: 0,
   usd: 0,
   bonus: 0,
-  ver: 'a-0.3.2'
+  houses: 0,
+  mansions: 0,
+  buildings: 0,
+  skyscrapers: 0,
+  ver: 'a-0.4.1'
 }
 
 const api = 'https://api.pancakeswap.info/api/v2/tokens/0xfa57ff4670f9016069e799a51a3186d03991e431'
