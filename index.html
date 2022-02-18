@@ -33,20 +33,13 @@
         <div class="set-picture d-flex"><img src="./img/houses/hs-blue.jpg" alt="blue house"></div>
         <p class="hab-title">Habitaciones</p>
         <div class="set-action d-flex">
-          <input type="number" id="hab-input">
+          <input type="number" id="hab-input" class="no-neg">
         </div>
-        <p class="pop" id="text-bonus">Bonus: </p>
+        <p class="pop" id="text-bonus">Bonus (%): </p>
         <div id="set-bonus" class="d-flex row">
-          <p class="pop">0%</p>
-          <input type="checkbox" id="bonus-0" class="set-boxes">
-          <p class="pop">2%</p>
-          <input type="checkbox" id="bonus-2" class="set-boxes">
-          <p class="pop">4%</p>
-          <input type="checkbox" id="bonus-4" class="set-boxes">
-          <p class="pop">6%</p>
-          <input type="checkbox" id="bonus-6" class="set-boxes">
+          <input type="number" class="set-boxes limit-14 no-neg" id="bonus-input">
         </div>
-        <div class="set-description d-flex pop">Escribe las habitaciones que tienes en total.</div>
+        <div class="set-description d-flex pop">Lee aquí sobre los bonus.</div>
       </div>
       <div id="set-tasks" class="set-cards d-flex">
         <p class="action-title">Tareas Diarias</p>
@@ -54,8 +47,8 @@
           <p class="action-subtitle">Limpiar</p>
           <div class="el-three d-flex row"><img src="./img/icons/clean.png" alt="Icono limpiar">
             <div class="d-flex">
-              <p>0 - 25</p>
-              <input type="number" max="25" id="input-clean" class="set-input limit-25">
+              <p>0 - 30</p>
+              <input type="number" max="25" id="input-clean" class="set-input limit-30 no-neg">
             </div>
           </div>
         </div>
@@ -64,7 +57,7 @@
           <div class="el-three d-flex row"><img src="./img/icons/repair.png" alt="Icono limpiar">
             <div class="d-flex">
               <p>0 - 5</p>
-              <input type="number" max="5" id="input-repair" class="set-input limit-5">
+              <input type="number" max="5" id="input-repair" class="set-input limit-5 no-neg">
             </div>
           </div>
         </div>
@@ -77,7 +70,7 @@
           <p class="action-subtitle">Valla</p>
           <div class="el-three d-flex row"><img src="./img/icons/fence.png" alt="Fence Icon">
             <div class="d-flex">
-              <input type="number" max="3" id="input-fence" class="set-input limit-3">
+              <input type="number" max="3" id="input-fence" class="set-input limit-3 no-neg">
             </div>
           </div>
         </div>
@@ -85,7 +78,7 @@
           <p class="action-subtitle">Seguro Limpieza</p>
           <div class="el-three d-flex row"><img src="./img/icons/ins.png" alt="Insurance Icon">
             <div class="d-flex">
-              <input type="number" max="12" id="input-insurance" class="set-input tasks-input limit-12">
+              <input type="number" max="12" id="input-insurance" class="set-input tasks-input limit-12 no-neg">
             </div>
           </div>
         </div>
@@ -93,7 +86,7 @@
           <p class="action-subtitle">Reparación</p>
           <div class="el-three d-flex row"><img src="./img/icons/repair.png" alt="Repair Icon">
             <div class="d-flex">
-              <input type="number" max="12" id="input-self-repair" class="set-input tasks-input limit-3">
+              <input type="number" max="12" id="input-self-repair" class="set-input tasks-input limit-3 no-neg">
             </div>
           </div>
         </div>
@@ -151,7 +144,7 @@
             <img src="./img/icons/ne.png" alt="NE icon">
           </div>
           <p class="calcs-desc pop">¿Cuántos NE tienes?</p>
-          <input type="number" max="10" id="converter-input">
+          <input type="number" max="10" id="converter-input" class="no-neg">
           <p id="converter-ninti" class="calcs-desc pop d-flex row"></p>
           <p id="converter-usd" class="calcs-desc pop d-flex row"></p>
         </div>
@@ -162,9 +155,9 @@
             <img src="./img/icons/bag.png" alt="Bag icon">
           </div>
           <p class="roi-description pop">¿Cuánto $USD invertiste?</p>
-          <input type="number" id="invested-input" class="roi-input">
+          <input type="number" id="invested-input" class="roi-input no-neg">
           <p class="roi-description pop">¿Cuánto has producido?</p>
-          <input type="number" id="produced-input" class="roi-input">
+          <input type="number" id="produced-input" class="roi-input no-neg">
           <p id="roi-days" class="calcs-desc pop">Ingresa $USD.</p>
         </div>
         <div id="ninti-exchange" class="calcs-cards d-flex">
@@ -175,14 +168,14 @@
           </div>
           <div id="ninti-to-usd-container">
             <p class="exchange-subtitle pop">$NINTI > $USD</p>
-            <input type="number" id="exchange-ninti-usd" class="exchange-input">
+            <input type="number" id="exchange-ninti-usd" class="exchange-input no-neg">
             <div id="exchange-result-ninti" class="d-flex row exchange-result pop">
               <p class="exchange-result pop">Ingresa $NINTI</p>
             </div>
           </div>
           <div id="usd-to-ninti-container">
             <p class="exchange-subtitle pop">$USD > $NINTI</p>
-            <input type="number" id="exchange-usd-ninti" class="exchange-input">
+            <input type="number" id="exchange-usd-ninti" class="exchange-input no-neg">
             <div id="exchange-result-usd" class="d-flex row exchange-result pop">
               <p class="exchange-result pop">Ingresa $NINTI</p>
             </div>

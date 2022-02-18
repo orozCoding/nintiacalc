@@ -11,11 +11,8 @@ const obj = {
   prod: 0,
   roi: 0,
   usd: 0,
-  bonus0: true,
-  bonus2: false,
-  bonus4: false,
-  bonus6: false,
-  ver: 'a-0.2.2'
+  bonus: 0,
+  ver: 'a-0.2.3'
 }
 
 const api = 'https://api.pancakeswap.info/api/v2/tokens/0xfa57ff4670f9016069e799a51a3186d03991e431'

@@ -73,27 +73,20 @@ const setBonusTrue = (bonus) => {
   saveUser(user);
 }
 
-const updateBonus = (bonus) => {
-  const allBonus = document.querySelectorAll('#set-bonus input')
-  allBonus.forEach((box) => {
-    box.checked = false;
-    setBonusFalse(box);
-  })
-  bonus.checked = true;
-  setBonusTrue(bonus);
+const updateBonus = () => {
+  const user = getUser();
+  const bonusInput = document.getElementById('bonus-input');
+  user.bonus = Number(bonusInput.value);
+  saveUser(user);
 }
 
 const calcBonus = (profit) => {
   const user = getUser();
-  if (user.bonus0 === true) {
+  if (user.bonus === 0 ) {
     return profit;
-  } else if (user.bonus2 === true) {
-    return (profit * 102) / 100;
-  } else if (user.bonus4 === true) {
-    return (profit * 104) / 100;
-  } else if (user.bonus6 === true) {
-    return (profit * 106) / 100;
-  }
+  } else {
+    return (profit * (100 + user.bonus)) / 100;
+  } 
 }
 
 const calcRent = () => {
@@ -350,7 +343,7 @@ const printCalcs = async () => {
   await printRoi();
 }
 
-const addEventListeners = () => {
+const limitInputs = () => {
   const limit3 = document.querySelectorAll('.limit-3');
   limit3.forEach((input) => {
     input.addEventListener('keyup', ()=> {
@@ -378,17 +371,38 @@ const addEventListeners = () => {
     })
   })
 
-  const limit25 = document.querySelectorAll('.limit-25');
-  limit25.forEach((input) => {
+  const limit14 = document.querySelectorAll('.limit-14');
+  limit14.forEach((input) => {
     input.addEventListener('keyup', ()=> {
-      if(input.value > 25){
-        input.value = 25;
+      if(input.value > 14){
+        input.value = 14;
       }
     })
   })
-  
 
-  
+  const limit30 = document.querySelectorAll('.limit-30');
+  limit30.forEach((input) => {
+    input.addEventListener('keyup', ()=> {
+      if(input.value > 30){
+        input.value = 30;
+      }
+    })
+  })
+
+  const inputs = document.querySelectorAll('.no-neg');
+  inputs.forEach((input) => {
+    input.addEventListener('keyup', () => {
+      if(input.value < 0 || !input.value.match(/[0-9]/) || input.value.length > 2){
+        input.value = 0;
+      }
+    })
+  })
+
+}
+
+const addEventListeners = () => {
+  limitInputs();
+    
   const roomsInput = document.getElementById('hab-input');
   roomsInput.addEventListener('keyup', async () => {
     if (roomsInput.value > 3000) {
@@ -398,13 +412,12 @@ const addEventListeners = () => {
     await printCalcs();
   })
 
-  const bonusBoxes = document.querySelectorAll('#set-bonus input');
-  bonusBoxes.forEach((bonusBox) => {
-    bonusBox.addEventListener('change', async () => {
-      updateBonus(bonusBox);
+  const bonusInput = document.getElementById('bonus-input');
+  bonusInput.addEventListener('keyup', async () => {
+      updateBonus();
       await printCalcs();
     })
-  })
+
 
   const boxes = document.querySelectorAll('.set-boxes');
   boxes.forEach((box) => {
@@ -484,23 +497,13 @@ const addEventListeners = () => {
 const printUser = () => {
   const { rooms, fence, insurance,
     clean, repair, price, ne,
-    bonus0, bonus2, bonus4, bonus6,
-  selfRepair } = getUser();
+    bonus, selfRepair } = getUser();
 
   const roomsInput = document.getElementById('hab-input');
   roomsInput.value = rooms;
 
-  const bonus0Input = document.getElementById('bonus-0');
-  bonus0Input.checked = bonus0;
-
-  const bonus2Input = document.getElementById('bonus-2');
-  bonus2Input.checked = bonus2;
-
-  const bonus4Input = document.getElementById('bonus-4');
-  bonus4Input.checked = bonus4;
-
-  const bonus6Input = document.getElementById('bonus-6');
-  bonus6Input.checked = bonus6;
+  const bonusInput = document.getElementById('bonus-input');
+  bonusInput.value = bonus;
 
   const cleanInput = document.getElementById('input-clean');
   cleanInput.value = clean;
