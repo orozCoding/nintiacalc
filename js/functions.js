@@ -59,20 +59,6 @@ const updateBoxes = () => {
   saveUser(user);
 }
 
-const setBonusFalse = (bonus) => {
-  const id = `bonus${bonus.id.charAt(6)}`;
-  const user = getUser();
-  user[id] = false;
-  saveUser(user);
-}
-
-const setBonusTrue = (bonus) => {
-  const id = `bonus${bonus.id.charAt(6)}`;
-  const user = getUser();
-  user[id] = true;
-  saveUser(user);
-}
-
 const updateBonus = () => {
   const user = getUser();
   const bonusInput = document.getElementById('bonus-input');
@@ -82,17 +68,67 @@ const updateBonus = () => {
 
 const calcBonus = (profit) => {
   const user = getUser();
-  if (user.bonus === 0 ) {
+  if (user.bonus === 0) {
     return profit;
   } else {
     return (profit * (100 + user.bonus)) / 100;
-  } 
+  }
+}
+
+const updateColors = () => {
+  const gold = document.getElementById('input-gold');
+  const black = document.getElementById('input-black');
+  const white = document.getElementById('input-white');
+  let user = getUser();
+  user.gold = Number(gold.value);
+  user.black = Number(black.value);
+  user.white = Number(white.value);
+  saveUser(user);
+}
+
+const printColors = () => {
+  const goldInput = document.getElementById('input-gold');
+  const blackInput = document.getElementById('input-black');
+  const whiteInput = document.getElementById('input-white');
+  const { gold, black, white } = getUser();
+
+  goldInput.value = gold;
+  blackInput.value = black;
+  whiteInput.value = white;
+}
+
+const sumColors = () => {
+  const {
+    gold, black, white
+  } = getUser();
+  return gold + black + white;
+}
+
+const sumNoColors = () => {
+  const { rooms } = getUser();
+  return rooms - sumColors();
+}
+
+const calcColorsRent = () => {
+  const {
+    gold, black, white
+  } = getUser();
+
+  const goldProfit = gold * 207;
+  const blackProfit = black * 190.8;
+  const whiteProfit = white * 183.6;
+
+  return goldProfit + blackProfit + whiteProfit
+}
+
+const calcNoColorRent = () => {
+  return sumNoColors() * 180;
 }
 
 const calcRent = () => {
-  let user = getUser();
-  const rent = user.rooms * 180;
-  return calcBonus(rent);
+  return Math.round(
+    calcBonus(calcNoColorRent() + calcColorsRent())
+    );
 }
 
 const printRent = () => {
@@ -346,8 +382,8 @@ const printCalcs = async () => {
 const limitInputs = () => {
   const limit3 = document.querySelectorAll('.limit-3');
   limit3.forEach((input) => {
-    input.addEventListener('keyup', ()=> {
-      if(input.value > 3){
+    input.addEventListener('keyup', () => {
+      if (input.value > 3) {
         input.value = 3;
       }
     })
@@ -355,8 +391,8 @@ const limitInputs = () => {
 
   const limit5 = document.querySelectorAll('.limit-5');
   limit5.forEach((input) => {
-    input.addEventListener('keyup', ()=> {
-      if(input.value > 5){
+    input.addEventListener('keyup', () => {
+      if (input.value > 5) {
         input.value = 5;
       }
     })
@@ -364,8 +400,8 @@ const limitInputs = () => {
 
   const limit12 = document.querySelectorAll('.limit-12');
   limit12.forEach((input) => {
-    input.addEventListener('keyup', ()=> {
-      if(input.value > 12){
+    input.addEventListener('keyup', () => {
+      if (input.value > 12) {
         input.value = 12;
       }
     })
@@ -373,8 +409,8 @@ const limitInputs = () => {
 
   const limit14 = document.querySelectorAll('.limit-14');
   limit14.forEach((input) => {
-    input.addEventListener('keyup', ()=> {
-      if(input.value > 14){
+    input.addEventListener('keyup', () => {
+      if (input.value > 14) {
         input.value = 14;
       }
     })
@@ -382,27 +418,54 @@ const limitInputs = () => {
 
   const limit30 = document.querySelectorAll('.limit-30');
   limit30.forEach((input) => {
-    input.addEventListener('keyup', ()=> {
-      if(input.value > 30){
+    input.addEventListener('keyup', () => {
+      if (input.value > 30) {
         input.value = 30;
       }
     })
   })
 
-  const inputs = document.querySelectorAll('.no-neg');
-  inputs.forEach((input) => {
+  const noNegInputs = document.querySelectorAll('.no-neg');
+  noNegInputs.forEach((input) => {
     input.addEventListener('keyup', () => {
-      if(input.value < 0 || !input.value.match(/[0-9]/) || input.value.length > 2){
-        input.value = 0;
+      if (input.value < 0 || !input.value.match(/[0-9%]/)) {
+        input.value = '';
       }
     })
   })
 
+  const max2Input = document.querySelectorAll('.max-2');
+  max2Input.forEach((input) => {
+    input.addEventListener('keyup', () => {
+      if (input.value.length > 2) {
+        input.value = '';
+      }
+    })
+  })
+
+  const max3Input = document.querySelectorAll('.max-3');
+  max3Input.forEach((input) => {
+    input.addEventListener('keyup', () => {
+      if (input.value.length > 3) {
+        input.value = '';
+      }
+    })
+  })
+
+  const colorInput = document.querySelectorAll('.color-input');
+  colorInput.forEach((input) => {
+    input.addEventListener('keyup', () => {
+      const user = getUser();
+      if(input.value > user.rooms){
+        input.value = '';
+      }
+    })
+  })
 }
 
 const addEventListeners = () => {
   limitInputs();
-    
+
   const roomsInput = document.getElementById('hab-input');
   roomsInput.addEventListener('keyup', async () => {
     if (roomsInput.value > 3000) {
@@ -413,10 +476,11 @@ const addEventListeners = () => {
   })
 
   const bonusInput = document.getElementById('bonus-input');
+  
   bonusInput.addEventListener('keyup', async () => {
-      updateBonus();
-      await printCalcs();
-    })
+    updateBonus();
+    await printCalcs();
+  })
 
 
   const boxes = document.querySelectorAll('.set-boxes');
@@ -431,6 +495,17 @@ const addEventListeners = () => {
   setInputs.forEach((input) => {
     input.addEventListener('keyup', async () => {
       updateBoxes();
+      await printCalcs();
+    })
+  })
+
+  const colorInputs = document.querySelectorAll('.color-input');
+  colorInputs.forEach((input) => {
+    input.addEventListener('keyup', async () => {
+      updateColors();
+      if(sumColors() > getUser().rooms){
+        input.value = '';
+      }
       await printCalcs();
     })
   })
@@ -486,11 +561,11 @@ const addEventListeners = () => {
     location.reload();
   })
 
-  document.addEventListener("wheel", function(event){
-    if(document.activeElement.type === "number"){
-        document.activeElement.blur();
+  document.addEventListener("wheel", function (event) {
+    if (document.activeElement.type === "number") {
+      document.activeElement.blur();
     }
-});
+  });
 }
 
 
@@ -528,6 +603,7 @@ const printUser = () => {
   printConvertedNE();
   printRoiInputs();
   printExchangeInputs();
+  printColors();
 }
 
 

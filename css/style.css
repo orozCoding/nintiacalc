@@ -27,6 +27,10 @@ a:active, a:hover {
   font-family: 'Poppins', sans-serif;
 }
 
+.beb {
+  font-family: 'Bebas Neue', 'Courier New', Courier, monospace;
+}
+
 main {
   width: 100%;
   align-items: center;
@@ -151,9 +155,19 @@ section {
   padding: 2px;
 }
 
+.color-input {
+  width: 40px;
+}
+
 #bonus-input {
   width: 60px;
   margin-top: 6px;
+}
+
+#bonus-input:focus {
+  outline: none;
+  color: #000000;
+  background-color: #e7b22c;
 }
 
 .set-input:focus {
@@ -167,7 +181,8 @@ section {
   padding: 5px 10px;
 }
 
-.description-link {
+.description-link,
+.description-link:visited {
   color: #e7b22c;
 }
 
@@ -178,6 +193,10 @@ section {
 #set-tasks img, 
 #set-items img {
   width: 60px;
+}
+
+#set-colors img{
+  width: 50px;
 }
 
 .el-three {
@@ -423,6 +442,18 @@ footer a:visited {
 
 .cl-green-light {
   color:rgb(12, 175, 66);
+}
+
+.add-container{
+  margin-top: 30px;
+  padding: 10px 60px;
+  background-color: rgba(255, 255, 255, 0.082);
+  border-radius: 20px;
+}
+
+.add-title {
+  color: #e7b22c;
+  font-size: 50px;
 }
 
 @media screen and (max-width: 580px) {

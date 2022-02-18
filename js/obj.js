@@ -1,5 +1,8 @@
 const obj = {
   rooms: 0,
+  white: 0,
+  black: 0,
+  gold: 0,
   clean: 0,
   repair: 0,
   fence: 0,
@@ -12,7 +15,7 @@ const obj = {
   roi: 0,
   usd: 0,
   bonus: 0,
-  ver: 'a-0.2.3'
+  ver: 'a-0.2.4'
 }
 
 const api = 'https://api.pancakeswap.info/api/v2/tokens/0xfa57ff4670f9016069e799a51a3186d03991e431'

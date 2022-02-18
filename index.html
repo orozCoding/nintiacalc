@@ -33,19 +33,53 @@
         <div class="set-picture d-flex"><img src="./img/houses/hs-blue.jpg" alt="blue house"></div>
         <p class="hab-title">Habitaciones</p>
         <div class="set-action d-flex">
-          <input type="number" id="hab-input" class="no-neg">
+          <input type="number" id="hab-input" class="no-neg max-3">
         </div>
-        <p class="pop" id="text-bonus">Bonus (%): </p>
+        <p class="pop" id="text-bonus">Bonus Terreno (%): </p>
         <div id="set-bonus" class="d-flex row">
-          <input type="number" class="set-boxes limit-14 no-neg" id="bonus-input">
+          <input type="text" class="set-boxes limit-14 no-neg max-2" id="bonus-input">
         </div>
-        <div class="set-description d-flex pop description-link"><a href="https://whitepaper.nintiaestate.com/v/espanol/lands" target="_blank" rel="noopener noreferrer">Lee aquí sobre los bonus.</a></div>
+        <div class="set-description d-flex pop description-link"><a
+            href="https://whitepaper.nintiaestate.com/v/espanol/lands" target="_blank" rel="noopener noreferrer">Lee
+            aquí sobre los bonus.</a></div>
+      </div>
+      <div id="set-colors" class="set-cards d-flex">
+        <p class="action-title">Pinturas</p>
+        <div class="item d-flex">
+          <p class="action-subtitle">Doradas</p>
+          <div class="el-three d-flex row">
+            <img src="./img/houses/h-gold.png" alt="Icono limpiar">
+            <div class="d-flex">
+              <input type="number" id="input-gold" class="set-input no-neg max-3 color-input">
+            </div>
+          </div>
+        </div>
+        <div class="item d-flex">
+          <p class="action-subtitle">Negras</p>
+          <div class="el-three d-flex row">
+            <img src="./img/houses/h-black.png" alt="Icono limpiar">
+            <div class="d-flex">
+              <input type="number" id="input-black" class="set-input no-neg max-3 color-input">
+            </div>
+          </div>
+        </div>
+        <div class="item d-flex">
+          <p class="action-subtitle">Blancas</p>
+          <div class="el-three d-flex row">
+            <img src="./img/houses/h-white.png" alt="Icono limpiar">
+            <div class="d-flex">
+              <input type="number" id="input-white" class="set-input no-neg max-3 color-input">
+            </div>
+          </div>
+        </div>
+        <div class="set-description pop">Ingresa el total de habitaciones pintadas</div>
       </div>
       <div id="set-tasks" class="set-cards d-flex">
         <p class="action-title">Tareas Diarias</p>
         <div class="item d-flex">
           <p class="action-subtitle">Limpiar</p>
-          <div class="el-three d-flex row"><img src="./img/icons/clean.png" alt="Icono limpiar">
+          <div class="el-three d-flex row">
+            <img src="./img/icons/clean.png" alt="Icono limpiar">
             <div class="d-flex">
               <p>0 - 30</p>
               <input type="number" max="25" id="input-clean" class="set-input limit-30 no-neg">
@@ -57,7 +91,7 @@
           <div class="el-three d-flex row"><img src="./img/icons/repair.png" alt="Icono limpiar">
             <div class="d-flex">
               <p>0 - 5</p>
-              <input type="number" max="5" id="input-repair" class="set-input limit-5 no-neg">
+              <input type="number" max="5" id="input-repair" class="set-input limit-5 no-neg max-2">
             </div>
           </div>
         </div>
@@ -70,7 +104,7 @@
           <p class="action-subtitle">Valla</p>
           <div class="el-three d-flex row"><img src="./img/icons/fence.png" alt="Fence Icon">
             <div class="d-flex">
-              <input type="number" max="3" id="input-fence" class="set-input limit-3 no-neg">
+              <input type="number" max="3" id="input-fence" class="set-input limit-3 max-2 no-neg">
             </div>
           </div>
         </div>
@@ -78,7 +112,7 @@
           <p class="action-subtitle">Seguro Limpieza</p>
           <div class="el-three d-flex row"><img src="./img/icons/ins.png" alt="Insurance Icon">
             <div class="d-flex">
-              <input type="number" max="12" id="input-insurance" class="set-input tasks-input limit-12 no-neg">
+              <input type="number" max="12" id="input-insurance" class="set-input tasks-input max-3 limit-12 no-neg">
             </div>
           </div>
         </div>
@@ -86,7 +120,7 @@
           <p class="action-subtitle">Reparación</p>
           <div class="el-three d-flex row"><img src="./img/icons/repair.png" alt="Repair Icon">
             <div class="d-flex">
-              <input type="number" max="12" id="input-self-repair" class="set-input tasks-input limit-3 no-neg">
+              <input type="number" max="12" id="input-self-repair" class="set-input tasks-input max-3 limit-3 no-neg">
             </div>
           </div>
         </div>
@@ -183,6 +217,17 @@
         </div>
     </section>
   </main>
+
+  <section id="ad-spot1" class="d-flex col pop">
+    <div class="add-container">
+      <p class="add-title beb">ESPACIO<br>PUBLICITARIO</p>
+      <p>Anuncia tu marca o proyecto acá</p>
+      <a class="description-link" href="https://twitter.com/ElProfeNFT" target="_blank" rel="noopener noreferrer">
+        CONTACTO
+      </a>
+    </div>
+  </section>
+
   <footer class="d-flex">
     <div id="price-disc" class="pop">
       <p class="credits pop">Si el sitio va mal, <a id="reset" href="https://orozcoding.github.io/nintiacalc/"
