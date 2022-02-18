@@ -102,8 +102,8 @@ const printRent = () => {
 
 const calcTasks = () => {
   let user = getUser();
-  let clean = 40 * user.clean;
-  let repair = 80 * user.repair;
+  let clean = 90 * user.clean;
+  let repair = 130 * user.repair;
 
   let tasks = clean + repair;
   return tasks;

@@ -138,7 +138,8 @@ section {
   accent-color: #e7b22c;
 }
 
-.set-input {
+.set-input,
+#bonus-input {
   width: 30px;
   background:none;
   border: white dotted 2px;
@@ -150,6 +151,11 @@ section {
   padding: 2px;
 }
 
+#bonus-input {
+  width: 60px;
+  margin-top: 6px;
+}
+
 .set-input:focus {
   outline: none;
   background-color:  #e7b22c;
@@ -159,6 +165,14 @@ section {
 .set-description {
   font-size: 12px;
   padding: 5px 10px;
+}
+
+.description-link {
+  color: #e7b22c;
+}
+
+.description-link:hover {
+  color: white;
 }
 
 #set-tasks img, 
