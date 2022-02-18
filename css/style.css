@@ -464,14 +464,11 @@ color: #d6a425;
 
 .buildings-items {
   width: 100%;
-  gap: 2px;
+  gap: 5px;
 }
 
 .building p {
   font-size: 20px;
-}
-.building input {
-  width: 10px;
 }
 
 .buildings-row {
@@ -488,6 +485,7 @@ color: #d6a425;
 .building input {
   width: 30px;
   padding: 2px;
+  height: 24px;
 }
 
 footer {
