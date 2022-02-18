@@ -138,6 +138,7 @@ section {
   font-size: 25px;
 }
 
+#electricity-checker input,
 .set-boxes {
   accent-color: #e7b22c;
 }
@@ -429,6 +430,10 @@ color: #d6a425;
   max-width: 100%;
   width: 400px;
   margin-top: 25px;
+}
+
+#elect-left-col {
+  gap: 7px;
 }
 
 #electricity-container {
