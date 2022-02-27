@@ -525,10 +525,23 @@ footer a:visited {
 }
 
 .add-container{
+  max-width: 400px;
   margin-top: 30px;
-  padding: 10px 60px;
+  padding: 10px 15px;
   background-color: rgba(255, 255, 255, 0.082);
   border-radius: 20px;
+}
+
+.add-container img {
+  margin-top: -15px;
+  width: 200px;
+}
+
+.add-description {
+  width: 100%;
+  font-size: 13px;
+  margin-top: -15px;
+  margin-bottom: 5px;
 }
 
 .add-title {
@@ -549,8 +562,15 @@ footer a:visited {
     display:block;
     font-size: 60px;
   }
+
   #main-settings {
     flex-direction: column;
+  }
+
+  #electricity-container {
+    width: 50%;
+    flex-direction: column;
+    height: 100%;
   }
 
   #main-calcs {
@@ -584,6 +604,10 @@ footer a:visited {
 
   #results-line {
     flex-direction: column;
+  }
+
+  .add-container {
+    max-width: 250px;
   }
 
   footer {
